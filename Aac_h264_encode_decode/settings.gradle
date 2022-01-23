@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "Aac_h264_encode_decode"
