@@ -17,15 +17,16 @@ include_directories(
 
 file(GLOB src_cpp
         ${aac}/decode/*.cpp
+        ${CMAKE_SOURCE_DIR}/native-lib.cpp
 )
 
 add_library(thirdparty_aac STATIC IMPORTED)
 set_target_properties(thirdparty_aac PROPERTIES IMPORTED_LOCATION
-        ${THIRD_PARTY_ROOT}/fdk_aac/${CMAKE_ANDROID_ARCH_ABI}/libfdk-aac.a)
+        ${THIRD_PARTY_ROOT}/fdk_aac/libs/${CMAKE_ANDROID_ARCH_ABI}/libfdk-aac.a)
 
 add_library(aac_h264
         SHARED
-        src_cpp
+        ${src_cpp}
 )
 
 find_library(log-lib
