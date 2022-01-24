@@ -3,3 +3,11 @@
 //
 
 #include "aac_decoder.h"
+
+AACDecoder::AACDecoder() {
+
+}
+
+int AACDecoder::initWithADTSFormat() {
+    return 0;
+}

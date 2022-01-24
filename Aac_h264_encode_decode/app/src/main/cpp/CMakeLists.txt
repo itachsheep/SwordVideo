@@ -9,13 +9,17 @@ project("aac_h264_encode_decode")
 
 set(THIRD_PARTY_ROOT ${CMAKE_SOURCE_DIR}/thirdparty)
 set(aac ${CMAKE_SOURCE_DIR}/aac)
+set(utils ${CMAKE_SOURCE_DIR}/utils)
 
 include_directories(
-        ${THIRD_PARTY_ROOT}/fdk_aac
+        ${THIRD_PARTY_ROOT}/fdk_aac/include
+        ${aac}
         ${aac}/decode
+        ${utils}
 )
 
 file(GLOB src_cpp
+        ${aac}/*.cpp
         ${aac}/decode/*.cpp
         ${CMAKE_SOURCE_DIR}/native-lib.cpp
 )

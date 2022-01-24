@@ -1,6 +1,7 @@
 package com.tao.aac_h264_encode_decode
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun bt_aac_decode(view: View) {
-
+        startActivity(Intent(this,AacActivity::class.java))
     }
 
     fun checkPermission(permissions: Array<String>): Boolean {
