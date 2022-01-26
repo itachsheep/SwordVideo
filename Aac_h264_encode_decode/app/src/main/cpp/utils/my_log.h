@@ -7,7 +7,7 @@
 #include <android/log.h>
 #include <string>
 
-#define TAG "MyAV."
+#define TAG "AacH264."
 #define LogD(...) __android_log_print(ANDROID_LOG_DEBUG,TAG,__VA_ARGS__)
 #define LogE(...) __android_log_print(ANDROID_LOG_ERROR,TAG,__VA_ARGS__)
 

@@ -1,6 +1,7 @@
 #include <jni.h>
 #include <string>
 #include "aac_ctrl.h"
+#include "basic_learn.h"
 
 extern "C" JNIEXPORT jstring JNICALL
 Java_com_tao_aac_1h264_1encode_1decode_MainActivity_stringFromJNI(
@@ -10,6 +11,7 @@ Java_com_tao_aac_1h264_1encode_1decode_MainActivity_stringFromJNI(
     return env->NewStringUTF(hello.c_str());
 }
 
+/************************************* decode ************************************/
 
 extern "C" JNIEXPORT jint JNICALL
 Java_com_tao_aac_1h264_1encode_1decode_AacManager_initWithADTformat(JNIEnv *env, jobject thiz) {
@@ -19,10 +21,23 @@ Java_com_tao_aac_1h264_1encode_1decode_AacManager_initWithADTformat(JNIEnv *env,
 extern "C" JNIEXPORT jbyteArray JNICALL
 Java_com_tao_aac_1h264_1encode_1decode_AacManager_decode(JNIEnv *env, jobject thiz,
                                                          jbyteArray byte_array, jint len) {
-    return nullptr;
+    return decode(env,thiz,byte_array,len);
 }
 
 extern "C" JNIEXPORT void JNICALL
 Java_com_tao_aac_1h264_1encode_1decode_AacManager_destroy(JNIEnv *env, jobject thiz) {
-
+    destroy();
 }
+
+/************************************* basic learn ************************************/
+
+extern "C"
+JNIEXPORT jbyteArray JNICALL
+Java_com_tao_aac_1h264_1encode_1decode_AacManager_modifyByteArray(JNIEnv *env, jobject thiz,
+                                                                  jbyteArray data) {
+    return modifyByteArray(env,thiz,data);
+}
+
+
+
+/************************************* encode ************************************/

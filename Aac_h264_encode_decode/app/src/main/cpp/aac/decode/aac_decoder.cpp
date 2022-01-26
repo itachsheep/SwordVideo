@@ -8,6 +8,18 @@ AACDecoder::AACDecoder() {
 
 }
 
+AACDecoder::~AACDecoder() {
+
+}
+
 int AACDecoder::initWithADTSFormat() {
     return 0;
+}
+
+int AACDecoder::decode(byte *pck, int len, byte **outBuffer) {
+    return 0;
+}
+
+void AACDecoder::destroy() {
+
 }

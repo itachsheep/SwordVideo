@@ -24,6 +24,9 @@ jbyteArray decode(JNIEnv *jniEnv, jobject jobje, jbyteArray aacByte, jint byteSi
     // 3，reinterpret_cast ？？
     // 4，ReleaseByteArrayElements ？？
     int ret = 0;
+    ////java中的byte[]最终在JNI中被转化为jbyteArray，但是jbyteArray要想在C语言中使用，
+    /// 还必须得到一个C语言中可识别的char类型指针的形式，
+    /// 这就是函数GetByteArrayElements的作用
     jbyte *aac = jniEnv->GetByteArrayElements(aacByte,0);
     byte *outFrame = nullptr;
     jbyteArray pcmByte = nullptr;
