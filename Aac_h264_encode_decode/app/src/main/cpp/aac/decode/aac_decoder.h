@@ -49,6 +49,9 @@
 
 #include <aacdecoder_lib.h>
 #include "my_log.h"
+
+///1 second of 44.1khz 16bit audio = 44100
+#define FDK_MAX_AUDIO_FRAME_SIZE 88200
 class AACDecoder {
 public:
     AACDecoder();
