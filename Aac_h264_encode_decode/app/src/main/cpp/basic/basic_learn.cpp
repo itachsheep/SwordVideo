@@ -14,3 +14,13 @@ jbyteArray modifyByteArray(JNIEnv *env, jobject thiz,
     env->SetByteArrayRegion(pcmByte,0,10,res);
     return pcmByte;
 }
+
+void test_memcpy() {
+    simpleLog();
+    string s = "taowei 123 ";
+    char *source = (char *)s.c_str();
+    int len = strlen(source);
+    char *out = new char[len];
+    memcpy(out,source,len);
+    LogD("test_memcpy out = %s",out);
+}

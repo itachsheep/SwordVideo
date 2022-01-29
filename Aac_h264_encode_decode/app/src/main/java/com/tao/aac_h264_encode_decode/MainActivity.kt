@@ -65,10 +65,14 @@ class MainActivity : AppCompatActivity() {
 
     external fun stringFromJNI(): String
     fun bt_basic_learn(view: View) {
-        val str = "hello";
+
+        /*val str = "hello";
         var byteArray = str.toByteArray(Charsets.UTF_8);
         val modifyByteArray = AacManager.modifyByteArray(byteArray)
-        LogUtils.d(tag,"bt_basic_learn modifyByteArray =" + String(modifyByteArray))
+        LogUtils.d(tag,"bt_basic_learn modifyByteArray =" +
+                String(modifyByteArray))*/
+
+        AacManager.test_memcpy()
     }
 
 }

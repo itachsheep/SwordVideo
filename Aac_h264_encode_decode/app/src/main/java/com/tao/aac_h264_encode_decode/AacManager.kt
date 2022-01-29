@@ -10,5 +10,5 @@ object AacManager {
 
     /***************************** basic learn  ***************************/
     external fun modifyByteArray(data: ByteArray): ByteArray
-
+    external fun test_memcpy()
 }

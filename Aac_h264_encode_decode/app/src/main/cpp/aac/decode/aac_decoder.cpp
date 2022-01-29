@@ -48,8 +48,37 @@ int AACDecoder::decode(byte *pck, int len, byte **outBuffer) {
     uint8_t pcm_buf[threshold];
     int pcm_buf_index = 0;
     int pcm_buf_size = 0;
+    while (len > 0) {
+        int data_size = threshold;
+        int len1 = this->fdkDecodeAudio((INT_PCM *)(pcm_buf + pcm_buf_index),
+                &data_size,pck,len);
+        if(len1 < 0) {
+            /** if error, skip frame */
+            len = 0;
+            break;
+        }
+        pck += len1;
+        len -= len1;
+        if(data_size <= 0) {
+            /** No data yet, get more frames */
+            break;
+        }
+        pcm_buf_index += data_size;
+        pcm_buf_size += data_size;
+    }
+    if(pcm_buf_size > 0) {
+        *outBuffer = new byte[pcm_buf_size];
+        memcpy(*outBuffer,pcm_buf,pcm_buf_size);
+    }
 
-    return 0;
+    return pcm_buf_size;
+}
+
+int AACDecoder::fdkDecodeAudio(INT_PCM *outBuffer,
+        int *outSize,
+        byte *buffer,
+        int size) {
+
 }
 
 void AACDecoder::destroy() {
