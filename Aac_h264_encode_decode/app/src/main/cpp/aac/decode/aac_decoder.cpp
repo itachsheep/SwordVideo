@@ -6,11 +6,11 @@
 
 AACDecoder::AACDecoder() : mSpecInfoSize(64),
                            mDecoder(NULL), mPckSize(-1), mSpecInfo(NULL) {
-
+    simpleLog();
 }
 
 AACDecoder::~AACDecoder() {
-
+    simpleLog();
 }
 
 int AACDecoder::initWithADTSFormat() {
@@ -38,8 +38,6 @@ void AACDecoder::printAACInfo() {
          aac_stream_info->aacSamplesPerFrame,
          aac_stream_info->aot,
          aac_stream_info->bitRate);
-
-
 }
 
 int AACDecoder::decode(byte *pck, int len, byte **outBuffer) {
@@ -74,15 +72,71 @@ int AACDecoder::decode(byte *pck, int len, byte **outBuffer) {
     return pcm_buf_size;
 }
 
+/**
+ *
+ * @param outBuffer
+ * @param output_size
+ * @param pktBuffer  要解码的数据
+ * @param pktSize 要解码的数据大小
+ * @return
+ */
 int AACDecoder::fdkDecodeAudio(INT_PCM *outBuffer,
-        int *outSize,
-        byte *buffer,
-        int size) {
+        int *output_size,
+        byte *pktBuffer,
+        int pktSize) {
+    simpleLog();
+    int ret = 0;
+    UINT pkt_size = pktSize;
+    UINT valid_size = pktSize;
+    UCHAR *input_buf[1] = {pktBuffer};
+
+    /** step 1 -> fill aac_data_buf to decoder's internal buf */
+    ret = aacDecoder_Fill(mDecoder,input_buf, &pkt_size,&valid_size);
+    if(ret != AAC_DEC_OK) {
+        LogE("aacDecoder_Fill failed: %x ",ret);
+        *output_size = 0;
+        return 0;
+    }
+    int buf_size = mPckSize;
+    if(mPckSize <= 0) {
+        buf_size = 10 * 1024;
+    }
+
+    /** step 2 -> call decoder function */
+    int fdk_flags = 0;
+    ret = aacDecoder_DecodeFrame(mDecoder,outBuffer,buf_size,fdk_flags);
+    if(ret == AAC_DEC_NOT_ENOUGH_BITS) {
+        LogE("aacDecoder_DecodeFrame not enough: %x ",ret);
+        *output_size = 0;
+        return (pktSize - valid_size);
+    }
+
+    if(ret != AAC_DEC_OK) {
+        LogE("aacDecoder_DecodeFrame failed : %x",ret);
+        *output_size = 0;
+        return 0;
+    }
+
+    if(mPckSize <= 0) {
+        initFrameSize();
+    }
+    *output_size = mPckSize;
+    /** return aac decode size */
+    return (pktSize - valid_size);
 
 }
 
-void AACDecoder::destroy() {
+void AACDecoder::initFrameSize() {
+    simpleLog();
+    CStreamInfo *aac_stream_info = aacDecoder_GetStreamInfo(mDecoder);
+    mPckSize = aac_stream_info->channelConfig * 2 * aac_stream_info->aacSamplesPerFrame;
+}
 
+void AACDecoder::destroy() {
+    simpleLog();
+    if(mDecoder) {
+        aacDecoder_Close(mDecoder);
+    }
 }
 
 
