@@ -130,6 +130,7 @@ void AACDecoder::initFrameSize() {
     simpleLog();
     CStreamInfo *aac_stream_info = aacDecoder_GetStreamInfo(mDecoder);
     mPckSize = aac_stream_info->channelConfig * 2 * aac_stream_info->aacSamplesPerFrame;
+    LogD("initFrameSize mPckSize = %d",mPckSize);
 }
 
 void AACDecoder::destroy() {
