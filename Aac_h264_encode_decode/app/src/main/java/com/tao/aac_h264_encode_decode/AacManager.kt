@@ -10,7 +10,7 @@ object AacManager {
 
 
     /*************************** encode *****************************/
-    external fun init(bitRate: Int, channel: Int, sampleRate: Int): Int
+    external fun enc_init(bitRate: Int, channel: Int, sampleRate: Int): Int
     external fun encode(byteArray: ByteArray, bufferSize: Int)
     external fun enc_destroy()
 

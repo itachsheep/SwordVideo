@@ -3,10 +3,10 @@ package com.tao.aac_h264_encode_decode
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 
 class MainActivity : AppCompatActivity() {
@@ -29,15 +29,21 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        checkPermission(request_permission)
+        LogUtils.d(tag, "onCreate checkPermission")
+        if (!checkPermission(request_permission)) {
+            ActivityCompat.requestPermissions(
+                this, request_permission,REQUEST_OK
+            )
+        }
+
     }
 
     fun bt_aac_decode(view: View) {
-        startActivity(Intent(this,AacDecodeActivity::class.java))
+        startActivity(Intent(this, AacDecodeActivity::class.java))
     }
 
     fun bt_aac_encode(view: View) {
-        startActivity(Intent(this,AacDecodeActivity::class.java))
+        startActivity(Intent(this, AacEncodeActivity::class.java))
     }
 
 
