@@ -9,7 +9,7 @@ JNIEXPORT jint JNICALL
 Java_com_tao_aac_1h264_1encode_1decode_AacManager_enc_1init(JNIEnv *env, jobject thiz,
                                                             jint bit_rate, jint channel,
                                                             jint sample_rate) {
-    // TODO: implement enc_init()
+
 }
 
 extern "C"

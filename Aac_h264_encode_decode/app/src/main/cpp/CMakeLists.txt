@@ -18,6 +18,7 @@ include_directories(
         ${aac}
         ${basic}
         ${aac}/decode
+        ${aac}/encode
         ${utils}
         ${jni}
 )
@@ -25,6 +26,7 @@ include_directories(
 file(GLOB src_cpp
         ${aac}/*.cpp
         ${aac}/decode/*.cpp
+        ${aac}/encode/*.cpp
         ${basic}/*.cpp
         ${CMAKE_SOURCE_DIR}/native-lib.cpp
         ${jni}/*.cpp

@@ -11,9 +11,18 @@
 using namespace std;
 #include "my_log.h"
 
+struct stu {
+    char *name;
+    int num;
+    int age;
+    char group;
+    float score;
+};
+
 jbyteArray modifyByteArray(JNIEnv *env, jobject thiz,
                      jbyteArray data);
 
 void test_memcpy();
+void test_struct();
 
 #endif //AAC_H264_ENCODE_DECODE_BASIC_LEARN_H

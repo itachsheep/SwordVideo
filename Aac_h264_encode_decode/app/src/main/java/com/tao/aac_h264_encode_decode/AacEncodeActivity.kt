@@ -50,12 +50,12 @@ class AacEncodeActivity: AppCompatActivity() {
         AudioCapture.addRecordListener(object : AudioCapture.OnRecordListener{
             override fun onStart(sampleRate: Int, channels: Int, sampleFormat: Int) {
                 LogUtils.d(tag,"onStart")
-                //AacManager.enc_init(mBitRate,mChannels,mSampleRate)
+                AacManager.enc_init(mBitRate,mChannels,mSampleRate)
             }
 
             override fun onStop() {
                 LogUtils.d(tag,"onStop")
-                //AacManager.enc_destroy()
+                AacManager.enc_destroy()
 
                 try {
                     outputStream.close()
@@ -67,7 +67,7 @@ class AacEncodeActivity: AppCompatActivity() {
 
             override fun onData(byteArray: ByteArray) {
                 LogUtils.d(tag, "onData size = " + byteArray.size.toString())
-                //AacManager.encode(byteArray,byteArray.size)
+                AacManager.encode(byteArray,byteArray.size)
                 outputStream.write(byteArray)
             }
         })

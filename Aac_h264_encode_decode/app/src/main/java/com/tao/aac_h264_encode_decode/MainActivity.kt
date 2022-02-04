@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity() {
         LogUtils.d(tag,"bt_basic_learn modifyByteArray =" +
                 String(modifyByteArray))*/
 
-        AacManager.test_memcpy()
+        AacManager.test_memcpy();
     }
 
 
