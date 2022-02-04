@@ -13,6 +13,10 @@ Pcm mp3 等文件，需要push 或者上传到
 /Applications/VLC.app/Contents/MacOS/VLC --demux=rawaud --rawaud-channels 2 --rawaud-samplerate 44100 /Users/weitao/Downloads/aac_decode.pcm
 
 
+//录音的pcm文件播放
+/Applications/VLC.app/Contents/MacOS/VLC --demux=rawaud --rawaud-channels 1 --rawaud-samplerate 44100 /Users/weitao/Downloads/my_record_tmp.pcm
+
+
 使用vlc 播放 yuv
 
 $ /Applications/VLC.app/Contents/MacOS/VLC --demux rawvideo --rawvid-fps 15 --rawvid-width 320 --rawvid-height 180 --rawvid-chroma I420 /Users/domain/Desktop/test_yuv420p_320x180.yuv
