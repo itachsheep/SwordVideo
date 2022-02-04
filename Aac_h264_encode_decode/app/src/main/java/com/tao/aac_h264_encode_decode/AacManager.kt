@@ -8,6 +8,12 @@ object AacManager {
     external fun decode(byteArray: ByteArray,len: Int): ByteArray
     external fun destroy()
 
+
+    /*************************** encode *****************************/
+    external fun init(bitRate: Int, channel: Int, sampleRate: Int): Int
+    external fun encode(byteArray: ByteArray, bufferSize: Int)
+    external fun enc_destroy()
+
     /***************************** basic learn  ***************************/
     external fun modifyByteArray(data: ByteArray): ByteArray
     external fun test_memcpy()

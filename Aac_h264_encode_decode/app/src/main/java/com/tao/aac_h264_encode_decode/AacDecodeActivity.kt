@@ -17,11 +17,11 @@ import java.io.FileInputStream
 import java.io.FileOutputStream
 import java.io.OutputStream
 
-class AacActivity : AppCompatActivity() {
+class AacDecodeActivity : AppCompatActivity() {
     val tag = "AacActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_aac)
+        setContentView(R.layout.activity_aac_decode)
 
         ///data/user/0/com.tao.aac_h264_encode_decode/files
         LogUtils.d(tag, "onCreate filesDir = " + filesDir)

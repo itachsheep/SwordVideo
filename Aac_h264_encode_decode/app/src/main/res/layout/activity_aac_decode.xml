@@ -9,10 +9,11 @@
 
     <Button
         android:onClick="bt_decode"
-        android:text="解码"
+        android:text="aac解码"
         android:textAllCaps="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
 
 
 </LinearLayout>

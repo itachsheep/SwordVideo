@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 
     <application
         android:allowBackup="true"
@@ -21,7 +21,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".AacActivity"/>
+        <activity android:name=".AacDecodeActivity"/>
+        <activity android:name=".AacEncodeActivity"/>
     </application>
 
 </manifest>

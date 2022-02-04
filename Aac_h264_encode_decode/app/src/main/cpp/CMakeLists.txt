@@ -11,12 +11,15 @@ set(THIRD_PARTY_ROOT ${CMAKE_SOURCE_DIR}/thirdparty)
 set(aac ${CMAKE_SOURCE_DIR}/aac)
 set(utils ${CMAKE_SOURCE_DIR}/utils)
 set(basic ${CMAKE_SOURCE_DIR}/basic)
+set(jni ${CMAKE_SOURCE_DIR}/jni)
+
 include_directories(
         ${THIRD_PARTY_ROOT}/fdk_aac/include
         ${aac}
         ${basic}
         ${aac}/decode
         ${utils}
+        ${jni}
 )
 
 file(GLOB src_cpp
@@ -24,6 +27,7 @@ file(GLOB src_cpp
         ${aac}/decode/*.cpp
         ${basic}/*.cpp
         ${CMAKE_SOURCE_DIR}/native-lib.cpp
+        ${jni}/*.cpp
 )
 
 add_library(thirdparty_aac STATIC IMPORTED)

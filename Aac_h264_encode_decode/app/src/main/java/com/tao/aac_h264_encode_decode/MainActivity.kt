@@ -6,7 +6,6 @@ import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 
@@ -23,7 +22,8 @@ class MainActivity : AppCompatActivity() {
 
     private val request_permission = arrayOf(
         Manifest.permission.WRITE_EXTERNAL_STORAGE,
-        Manifest.permission.READ_EXTERNAL_STORAGE
+        Manifest.permission.READ_EXTERNAL_STORAGE,
+        Manifest.permission.RECORD_AUDIO,
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,8 +33,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun bt_aac_decode(view: View) {
-        startActivity(Intent(this,AacActivity::class.java))
+        startActivity(Intent(this,AacDecodeActivity::class.java))
     }
+
+    fun bt_aac_encode(view: View) {
+        startActivity(Intent(this,AacDecodeActivity::class.java))
+    }
+
+
 
     fun checkPermission(permissions: Array<String>): Boolean {
         for (permission in permissions) {
@@ -74,5 +80,6 @@ class MainActivity : AppCompatActivity() {
 
         AacManager.test_memcpy()
     }
+
 
 }
