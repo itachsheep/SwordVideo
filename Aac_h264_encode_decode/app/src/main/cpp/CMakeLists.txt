@@ -12,6 +12,7 @@ set(aac ${CMAKE_SOURCE_DIR}/aac)
 set(utils ${CMAKE_SOURCE_DIR}/utils)
 set(basic ${CMAKE_SOURCE_DIR}/basic)
 set(jni ${CMAKE_SOURCE_DIR}/jni)
+set(x264 ${CMAKE_SOURCE_DIR}/x264)
 
 include_directories(
         ${THIRD_PARTY_ROOT}/fdk_aac/include
@@ -19,6 +20,7 @@ include_directories(
         ${basic}
         ${aac}/decode
         ${aac}/encode
+        ${x264}/encode
         ${utils}
         ${jni}
 )
@@ -27,9 +29,11 @@ file(GLOB src_cpp
         ${aac}/*.cpp
         ${aac}/decode/*.cpp
         ${aac}/encode/*.cpp
+        ${x264}/encode/*.cpp
         ${basic}/*.cpp
         ${CMAKE_SOURCE_DIR}/native-lib.cpp
         ${jni}/*.cpp
+        ${jni}/jni_x264_encode.cpp
 )
 
 add_library(thirdparty_aac STATIC IMPORTED)

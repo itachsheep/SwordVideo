@@ -46,6 +46,10 @@ class MainActivity : AppCompatActivity() {
         startActivity(Intent(this, AacEncodeActivity::class.java))
     }
 
+    fun bt_h264_encode(view: View) {
+        startActivity(Intent(this,X264EncodeActivity::class.java))
+    }
+
 
 
     fun checkPermission(permissions: Array<String>): Boolean {

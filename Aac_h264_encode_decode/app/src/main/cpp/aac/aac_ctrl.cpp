@@ -18,7 +18,7 @@ int initWithADTSFormat() {
 }
 
 jbyteArray decode(JNIEnv *jniEnv, jobject jobje, jbyteArray aacByte, jint byteSize) {
-    //todo: 太难懂了。。
+    //todo:
     // 1，nullptr 和 NULL区别
     // 2，GetByteArrayElements 什么？？
     // 3，reinterpret_cast ？？

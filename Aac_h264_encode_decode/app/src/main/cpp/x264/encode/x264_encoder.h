@@ -1,0 +1,8 @@
+//
+// Created by wei tao on 2/5/22.
+//
+
+#ifndef AAC_H264_ENCODE_DECODE_X264_ENCODER_H
+#define AAC_H264_ENCODE_DECODE_X264_ENCODER_H
+
+#endif //AAC_H264_ENCODE_DECODE_X264_ENCODER_H
