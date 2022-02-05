@@ -9,6 +9,8 @@
 #include <zconf.h>
 #include <stdio.h>
 
+#include "my_log.h"
+
 typedef enum {
     LC_AAC = 2,
     HE_AAC = 5,
@@ -28,6 +30,7 @@ private:
      */
     bool isFlagGlobalHeader = false;
     FILE *aacFile = 0;
+    char *aacDir = "/storage/emulated/0/Android/data/com.tao.aac_h264_encode_decode/files/";
 public:
     AACEncoder();
     ~AACEncoder();

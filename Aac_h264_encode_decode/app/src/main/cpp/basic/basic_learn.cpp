@@ -41,4 +41,31 @@ void test_struct() {
     struct stu stu3 = {"liLei",201};
     LogD("%s的学号是%d，年龄是%d，在%c组，今年的成绩是%.1f！\n",
          stu3.name,stu3.num, stu3.age, stu3.group, stu3.score);
+
+    LogD("test_struct false = %d ", false);
+    LogD("test_struct true = %d ", true);
+}
+
+void test_strcat() {
+    simpleLog();
+    char *path = "/sdcard/android/data/files/";
+    const char *src = "my_record.aac";
+    /**
+     * dest为起始字符串，src为拼接在后面的字符串
+     *  这样做确实成功将两个字符串拼接起来了，
+     *  但是这导致内存操作错误，因为strcat只是将src加到了dest的后面，
+     *  但是dest没有多余的容量来容纳这些数据
+     *  虽然我们编译过去，也得到了正确的结果，
+     *  但每次我们的数据都会超出所属内存，最终导致异常崩溃！
+     */
+    //todo: char *out = strcat(path,"my_record.aac");
+    /**
+     * 正确的拼接方法如下
+     */
+    char *out = (char *)malloc(strlen(path) + strlen(src));
+//    memset(out,0,strlen(path) + strlen(src));
+//    strcat(out,path);
+    strcpy(out,path);
+    strcat(out,src);
+    LogD("test_strcat out len = %d, out = %s",strlen(out),out);
 }
