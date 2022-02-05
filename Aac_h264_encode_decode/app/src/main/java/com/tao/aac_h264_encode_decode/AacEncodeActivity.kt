@@ -44,7 +44,7 @@ class AacEncodeActivity: AppCompatActivity() {
          * ///storage/emulated/0/Android/data/com.tao.aac_h264_encode_decode/files
          */
         val outFile = File(getExternalFilesDir(null),"my_record_tmp.pcm")
-        val outputStream = FileOutputStream(outFile)
+//        val outputStream = FileOutputStream(outFile)
 //        var byteArray = ByteArray(1024)
         LogUtils.d(tag,"onCreate outFile = ${outFile.absolutePath}")
         AudioCapture.addRecordListener(object : AudioCapture.OnRecordListener{
@@ -57,18 +57,18 @@ class AacEncodeActivity: AppCompatActivity() {
                 LogUtils.d(tag,"onStop")
                 AacManager.enc_destroy()
 
-                try {
+                /*try {
                     outputStream.close()
                 } catch (e: Exception) {
                     e.printStackTrace()
-                }
+                }*/
 
             }
 
             override fun onData(byteArray: ByteArray) {
                 LogUtils.d(tag, "onData size = " + byteArray.size.toString())
                 AacManager.encode(byteArray,byteArray.size)
-                outputStream.write(byteArray)
+                //outputStream.write(byteArray)
             }
         })
     }

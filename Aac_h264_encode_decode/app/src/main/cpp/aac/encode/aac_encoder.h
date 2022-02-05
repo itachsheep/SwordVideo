@@ -10,6 +10,7 @@
 #include <stdio.h>
 
 #include "my_log.h"
+#include "put_bits.h"
 
 typedef enum {
     LC_AAC = 2,
@@ -31,6 +32,7 @@ private:
     bool isFlagGlobalHeader = false;
     FILE *aacFile = 0;
     char *aacDir = "/storage/emulated/0/Android/data/com.tao.aac_h264_encode_decode/files/";
+    char *aacFileName = "my_record_tmp.aac";
 public:
     AACEncoder();
     ~AACEncoder();

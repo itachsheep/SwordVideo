@@ -12,7 +12,7 @@ AACEncoder::~AACEncoder() {
 
 }
 
-static const char* fdkaac_error(AACENC_ERROR erraac) {
+static const char *fdkaac_error(AACENC_ERROR erraac) {
     switch (erraac) {
         case AACENC_OK:
             return "No error";
@@ -44,14 +44,14 @@ static const char* fdkaac_error(AACENC_ERROR erraac) {
 }
 
 int AACEncoder::init(AACProfile profile,
-        int sampleRate, int channels, int bitRate) {
+                     int sampleRate, int channels, int bitRate) {
     simpleLog();
     int result = 0;
     AACENC_ERROR ret;
     // 打开编码器,如果非常需要节省内存则可以调整encModules
-    if((ret = aacEncOpen(&mAacencoder,0x0,channels)) != AACENC_OK) {
+    if ((ret = aacEncOpen(&mAacencoder, 0x0, channels)) != AACENC_OK) {
         LogE("Unable to open fdkaac encoder, ret = 0x%x, error is %s\n",
-                ret, fdkaac_error(ret));
+             ret, fdkaac_error(ret));
         return result;
     }
     /**编码规格
@@ -63,7 +63,7 @@ int AACEncoder::init(AACProfile profile,
     if ((ret = aacEncoder_SetParam(mAacencoder, AACENC_AOT, profile))
         != AACENC_OK) /* aac lc */{
         LogE("Unable to set the AACENC_AOT, ret = 0x%x, error is %s\n",
-                ret, fdkaac_error(ret));
+             ret, fdkaac_error(ret));
         destory();
         return false;
     }
@@ -72,7 +72,7 @@ int AACEncoder::init(AACProfile profile,
     if ((ret = aacEncoder_SetParam(mAacencoder, AACENC_SAMPLERATE, sampleRate))
         != AACENC_OK) {
         LogE("Unable to set the SAMPLERATE, ret = 0x%x, error is %s\n",
-                ret, fdkaac_error(ret));
+             ret, fdkaac_error(ret));
         destory();
         return false;
     }
@@ -81,7 +81,7 @@ int AACEncoder::init(AACProfile profile,
     if ((ret = aacEncoder_SetParam(mAacencoder, AACENC_CHANNELMODE, channels))
         != AACENC_OK) {
         LogE("Unable to set the AACENC_CHANNELMODE, ret = 0x%x, error is %s\n",
-                ret, fdkaac_error(ret));
+             ret, fdkaac_error(ret));
         destory();
         return false;
     }
@@ -90,7 +90,7 @@ int AACEncoder::init(AACProfile profile,
     if ((ret = aacEncoder_SetParam(mAacencoder, AACENC_BITRATE, bitRate))
         != AACENC_OK) {
         LogE("Unable to set the AACENC_BITRATE, ret = 0x%x, error is %s\n",
-                ret, fdkaac_error(ret));
+             ret, fdkaac_error(ret));
         destory();
         return false;
     }
@@ -109,7 +109,7 @@ int AACEncoder::init(AACProfile profile,
     if ((ret = aacEncoder_SetParam(mAacencoder, AACENC_TRANSMUX, encode_mode))
         != AACENC_OK) /*  0-raw 2-adts */{
         LogE("Unable to set the ADTS AACENC_TRANSMUX, ret = 0x%x, error is %s\n",
-                ret, fdkaac_error(ret));
+             ret, fdkaac_error(ret));
         destory();
         return false;
     }
@@ -118,7 +118,7 @@ int AACEncoder::init(AACProfile profile,
     if ((ret = aacEncEncode(mAacencoder, NULL, NULL, NULL, NULL))
         != AACENC_OK) {
         LogE("Unable to initialize the aacEncEncode, ret = 0x%x, error is %s\n",
-                ret, fdkaac_error(ret));
+             ret, fdkaac_error(ret));
         destory();
         return false;
     }
@@ -126,7 +126,7 @@ int AACEncoder::init(AACProfile profile,
     // 获取编码器信息
     if ((ret = aacEncInfo(mAacencoder, &mEncInfo)) != AACENC_OK) {
         LogE("Unable to get the aacEncInfo info, ret = 0x%x, error is %s\n",
-                ret, fdkaac_error(ret));
+             ret, fdkaac_error(ret));
         destory();
         return false;
     }
@@ -136,7 +136,7 @@ int AACEncoder::init(AACProfile profile,
     mInBufferCursor = 0;
     mInBuffer = new uint8_t[mInputSizeFixed];
     memset(mInBuffer, 0, mInputSizeFixed);
-    LogD("init 固定每次编码长度为 pcm帧长 = %d",mInputSizeFixed);
+    LogD("init 固定每次编码长度为 pcm帧长 = %d", mInputSizeFixed);
 
     if (0 != access(aacDir, 0)) {
         //TODO -- 没有找到 NDK 中怎么创建文件
@@ -145,9 +145,13 @@ int AACEncoder::init(AACProfile profile,
         return 0;
     }
 
-    char *filePath = strcat(aacDir,"my_record_tmp.aac");
-    aacFile = fopen(filePath,"wb+");
+    char *filePath = (char *) malloc(strlen(aacDir) + strlen(aacFileName));
+    memset(filePath, 0, strlen(aacDir) + strlen(aacFileName));
+    strcpy(filePath, aacDir);
+    strcat(filePath, aacFileName);
+    aacFile = fopen(filePath, "wb+");
     LogD("init aac编码文件输出路径  = ", filePath);
+
     result = 1;
     return result;
 }
@@ -160,12 +164,170 @@ int AACEncoder::init(AACProfile profile,
  * @return 输出 AAC 的长度
  */
 int AACEncoder::encode(Byte *pData, int dataByteSize, char **outBuffer) {
-    int ret = 0;
-    return ret;
+    int pDataCursor = 0;
+    *outBuffer = new char[dataByteSize];
+    int packetSize = 0;
+    while (dataByteSize > 0) {
+        int cpySize = 0;
+        if (mInBufferCursor + dataByteSize >= mInputSizeFixed) {
+            /// 可以进行编码，每次固定 编码的长度为 mInputSizeFixed
+
+            cpySize = mInputSizeFixed - mInBufferCursor;
+            /// 从源src所指的内存地址的起始位置开始拷贝n个字节到目标dest所指的内存地址的起始位置中
+            /// 如果目标数组destin本身已有数据，执行memcpy（）后，
+            /// 将覆盖原有数据（最多覆盖n）。如果要追加数据，则每次执行memcpy后，
+            /// 要将目标数组地址增加到你要追加数据的地址。
+            memcpy(mInBuffer + mInBufferCursor, pData + pDataCursor, cpySize);
+
+            int aacPktSize = this->fdkEncodeAudio();
+            if (aacPktSize > 0) {
+                this->writeAACPacketToFile(mAacOutbuf, aacPktSize);
+                memcpy(*outBuffer + packetSize, mAacOutbuf, aacPktSize);
+                packetSize += aacPktSize;
+            }
+            mInBufferCursor = 0;
+            memset(mInBuffer, 0, mInputSizeFixed);
+        } else {
+            cpySize = dataByteSize;
+            memcpy(mInBuffer + mInBufferCursor, pData + pDataCursor, cpySize);
+            mInBufferCursor += cpySize;
+        }
+        dataByteSize -= cpySize;
+        pDataCursor += cpySize;
+    }
+    LogD("encode packetSize = %d", packetSize);
+    return packetSize;
+}
+
+/**
+ * 进行编码
+ * @return 返回编码的大小
+ */
+int AACEncoder::fdkEncodeAudio() {
+    AACENC_BufDesc in_buf = {0}, out_buf = {0};
+    AACENC_InArgs in_args = {0};
+    AACENC_OutArgs out_args = {0};
+    int in_identifier = IN_AUDIO_DATA;
+    int in_elem_size = 2;
+
+    /// 所有通道的加起来的采样点数，每个采样点是2个字节所以/2
+    in_args.numInSamples = mInputSizeFixed / 2;
+    in_buf.numBufs = 1;
+    /// pData为pcm数据指针
+    in_buf.bufs = (void **) (&mInBuffer);
+    in_buf.bufferIdentifiers = &in_identifier;
+    in_buf.bufSizes = &mInputSizeFixed;
+    in_buf.bufElSizes = &in_elem_size;
+
+    int out_identifier = OUT_BITSTREAM_DATA;
+    void *out_ptr = mAacOutbuf;
+    int out_size = sizeof(mAacOutbuf);
+    int out_elem_size = 1;
+    out_buf.numBufs = 1;
+    out_buf.bufs = &out_ptr;
+    out_buf.bufferIdentifiers = &out_identifier;
+    out_buf.bufSizes = &out_size;
+    out_buf.bufElSizes = &out_elem_size;
+
+    if ((aacEncEncode(mAacencoder, &in_buf, &out_buf, &in_args, &out_args)) != AACENC_OK) {
+        LogE("Encoding aac failed\n");
+        return 0;
+    }
+
+    if (out_args.numOutBytes == 0) {
+        return 0;
+    }
+    //编码后的aac数据存在outbuf中，大小为out_args.numOutBytes
+    return out_args.numOutBytes;
+}
+
+void AACEncoder::writeAACPacketToFile(uint8_t *data, int datalen) {
+    LogD("writeAACPacketToFile after One Encode Size is : %d, isFlagGlobalHeader = %d", datalen,
+         isFlagGlobalHeader);
+    uint8_t *buffer = data;
+    if (isFlagGlobalHeader) {
+        ///写入 ADTS
+        datalen += 7;
+        uint8_t *_buffer = new uint8_t[datalen];
+        memset(_buffer, 0, datalen);
+        memcpy(_buffer + 7, data, datalen - 7);
+        addADTS2Packet(_buffer, datalen);
+        fwrite(_buffer, sizeof(uint8_t), datalen, aacFile);
+        delete[]_buffer;
+        return;
+    }
+
+    if(aacFile) {
+        fwrite(buffer, sizeof(uint8_t), datalen, aacFile);
+    }
+}
+
+
+/**
+ *
+ * ADTS packet 信息可以参考：https://www.jianshu.com/p/5c770a22e8f8
+ *
+ * 参考ffmpeg源码中 添加 ADTS 头部
+ *
+ * @param packetLen 该帧的长度，包括header的长度
+ * @param profile  0-Main profile, 1-AAC LC，2-SSR
+ * @param freqIdx    采样率
+                    0: 96000 Hz
+                    1: 88200 Hz
+                    2: 64000 Hz
+                    3: 48000 Hz
+                    4: 44100 Hz
+                    5: 32000 Hz
+                    6: 24000 Hz
+                    7: 22050 Hz
+                    8: 16000 Hz
+                    9: 12000 Hz
+                    10: 11025 Hz
+                    11: 8000 Hz
+                    12: 7350 Hz
+                    13: Reserved
+                    14: Reserved
+                    15: frequency is written explictly
+* @param chanCfg    通道
+                    2：L+R
+                    3：C+L+R
+*/
+void AACEncoder::addADTS2Packet(uint8_t *packet, int packetLen) {
+    simpleLog();
+    int profile = 1;
+    int freqIdx = 4; // 44.1KHz
+    int chanCfg = 1; // 通道
+
+    PutBitContext pb;
+    init_put_bits(&pb, packet, ADTS_HEADER_SIZE);
+
+    /* adts_fixed_header */
+    put_bits(&pb, 12, 0xfff);   /* syncword ：代表一个ADTS帧的开始, 用于同步，解码器可通过0xFFF确定每个ADTS的开始位置*/
+    put_bits(&pb, 1, 0);        /* ID ：MPEG Version: 0 for MPEG-4, 1 for MPEG-2*/
+    put_bits(&pb, 2, 0);        /* layer always: '00'*/
+    put_bits(&pb, 1, 1);        /* protection_absent */
+    put_bits(&pb, 2, profile); /* profile_objecttype 表示使用哪个级别的AAC，如01 Low Complexity(LC) -- AAC LC*/
+    put_bits(&pb, 4, freqIdx); //采样率的下标.
+    put_bits(&pb, 1, 0);        /* private_bit */
+    put_bits(&pb, 3, chanCfg); /* channel_configuration 声道数. 比如2表示立体声双声道.*/
+    put_bits(&pb, 1, 0);        /* original_copy */
+    put_bits(&pb, 1, 0);        /* home */
+
+    /* adts_variable_header */
+    put_bits(&pb, 1, 0);        /* copyright_identification_bit */
+    put_bits(&pb, 1, 0);        /* copyright_identification_start */
+    put_bits(&pb, 13, packetLen); /* aac_frame_length */
+    put_bits(&pb, 11, 0x7ff);   /* adts_buffer_fullness */
+    put_bits(&pb, 2, 0);        /* number_of_raw_data_blocks_in_frame */
+
+    flush_put_bits(&pb);
 }
 
 void AACEncoder::destory() {
-
+    simpleLog();
+    if (mAacencoder) {
+        aacEncClose(&mAacencoder);
+    }
 }
 
 
