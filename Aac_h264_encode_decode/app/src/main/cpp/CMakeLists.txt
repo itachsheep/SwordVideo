@@ -16,6 +16,8 @@ set(x264 ${CMAKE_SOURCE_DIR}/x264)
 
 include_directories(
         ${THIRD_PARTY_ROOT}/fdk_aac/include
+        ${THIRD_PARTY_ROOT}/x264/include
+
         ${aac}
         ${basic}
         ${aac}/decode
@@ -40,6 +42,10 @@ add_library(thirdparty_aac STATIC IMPORTED)
 set_target_properties(thirdparty_aac PROPERTIES IMPORTED_LOCATION
         ${THIRD_PARTY_ROOT}/fdk_aac/libs/${CMAKE_ANDROID_ARCH_ABI}/libfdk-aac.a)
 
+add_library(thirdparty_x264 STATIC IMPORTED)
+set_target_properties(thirdparty_x264 PROPERTIES IMPORTED_LOCATION
+        ${THIRD_PARTY_ROOT}/x264/libs/${CMAKE_ANDROID_ARCH_ABI}/libx264.a)
+
 add_library(aac_h264
         SHARED
         ${src_cpp}
@@ -53,5 +59,6 @@ find_library(log-lib
 target_link_libraries(
         aac_h264
         thirdparty_aac
+        thirdparty_x264
         ${log-lib}
 )
