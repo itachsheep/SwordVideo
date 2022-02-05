@@ -150,7 +150,7 @@ int AACEncoder::init(AACProfile profile,
     strcpy(filePath, aacDir);
     strcat(filePath, aacFileName);
     aacFile = fopen(filePath, "wb+");
-    LogD("init aac编码文件输出路径  = ", filePath);
+    LogD("init aac编码文件输出路径  = %s", filePath);
 
     result = 1;
     return result;
@@ -242,7 +242,7 @@ int AACEncoder::fdkEncodeAudio() {
 }
 
 void AACEncoder::writeAACPacketToFile(uint8_t *data, int datalen) {
-    LogD("writeAACPacketToFile after One Encode Size is : %d, isFlagGlobalHeader = %d", datalen,
+    LogD("after One Encode Size is : %d, isFlagGlobalHeader = %d", datalen,
          isFlagGlobalHeader);
     uint8_t *buffer = data;
     if (isFlagGlobalHeader) {
