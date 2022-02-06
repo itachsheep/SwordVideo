@@ -42,6 +42,9 @@ void test_struct() {
     LogD("%s的学号是%d，年龄是%d，在%c组，今年的成绩是%.1f！\n",
          stu3.name,stu3.num, stu3.age, stu3.group, stu3.score);
 
+    stu *stu4 = new stu;
+    stu4->name = "小明";
+    stu4->num = 201038;
     LogD("test_struct false = %d ", false);
     LogD("test_struct true = %d ", true);
 }

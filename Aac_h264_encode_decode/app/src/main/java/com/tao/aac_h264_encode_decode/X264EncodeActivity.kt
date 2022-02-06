@@ -18,6 +18,7 @@ class X264EncodeActivity : AppCompatActivity(), View.OnClickListener {
 
     val tag = "X264EncodeActivity"
     lateinit var btX264Encode: Button
+    lateinit var btX264Stop: Button
     lateinit var mH264PATH: String
 
 
@@ -36,7 +37,7 @@ class X264EncodeActivity : AppCompatActivity(), View.OnClickListener {
      */
     private val mYUVType = YUVType.YUV420sp.type
     //todo: yuv视频码率如何算？？？？
-    private val mVideoRate: Int = 2000;//(176 * 144 * (1 + 0.5f) * 25).toInt()
+    private val mVideoRate: Int = 120;//2000;//(176 * 144 * (1 + 0.5f) * 25).toInt()
     private val mFrameRate = 25;
 
 
@@ -44,8 +45,11 @@ class X264EncodeActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_x264_encode)
         btX264Encode = findViewById(R.id.bt_start_x264_encode)
+        btX264Stop = findViewById(R.id.bt_stop_x264_encode)
+
         btX264Encode.setOnClickListener(this)
-        mH264PATH =  getExternalFilesDir(null)?.absolutePath + "record_176_144.h264"
+        btX264Stop.setOnClickListener(this)
+        mH264PATH =  getExternalFilesDir(null)?.absolutePath + "/record_176_144.h264"
 
         LogUtils.d(tag,"mH264PATH = $mH264PATH" )
 
@@ -55,6 +59,18 @@ class X264EncodeActivity : AppCompatActivity(), View.OnClickListener {
 
 
     override fun onClick(v: View) {
+        when(v.id) {
+            R.id.bt_stop_x264_encode -> doStopEncode()
+            R.id.bt_start_x264_encode -> doEncode()
+        }
+
+    }
+
+    private fun doStopEncode() {
+        H264Manager.enc_destroy()
+    }
+
+    private fun doEncode() {
         Thread(){
             val ins = resources.openRawResource(R.raw.raw_176_144)
             var byteArray = ByteArray(mWidth * mHeight * 3 / 2)
