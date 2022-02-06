@@ -36,6 +36,6 @@ Java_com_tao_aac_1h264_1encode_1decode_H264Manager_enc_1encode(JNIEnv *env, jobj
 extern "C" JNIEXPORT void JNICALL
 Java_com_tao_aac_1h264_1encode_1decode_H264Manager_enc_1destroy(JNIEnv *env, jobject thiz) {
     if(x264Encoder) {
-        x264Encoder->destory();
+        x264Encoder->destroy();
     }
 }

@@ -153,7 +153,7 @@ void X264Encoder::encode(AVPacket *packet) {
     }
 }
 
-void X264Encoder::destory() {
+void X264Encoder::destroy() {
     simpleLog();
     if (pX264Codec) {
         x264_encoder_close(pX264Codec);

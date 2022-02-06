@@ -81,7 +81,7 @@ public:
     /**
      * 销毁编码器
      */
-    void destory();
+    void destroy();
 };
 
 #endif //AAC_H264_ENCODE_DECODE_X264_ENCODER_H
