@@ -34,14 +34,19 @@ class AudioMediaCodecActivity: AppCompatActivity(),IMediaCodecListener,
     private var mFileOutputStream_PCM: FileOutputStream? = null
     private var mDecode: AACDecoder? = null
 
-    private val AAC_DIR = getExternalFilesDir(null)?.absolutePath
-    private val AAC_PATH = "${AAC_DIR}/mediacodec_44100_1_16_bit.aac"
-    private val PCM_PATH = "${AAC_DIR}/mediacodec_44100_1_16_bit.pcm"
+    private lateinit var AAC_DIR: String
+    private lateinit var AAC_PATH : String
+    private lateinit var PCM_PATH : String
     private var mAudio: ByteArray? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_media_codec_encode_decode)
+
+        AAC_DIR = getExternalFilesDir(null)?.absolutePath.toString()
+        AAC_PATH = "${AAC_DIR}/mediacodec_44100_1_16_bit.aac"
+        PCM_PATH = "${AAC_DIR}/mediacodec_44100_1_16_bit.pcm"
+
         btMediaCodecEncodeDecode = findViewById(R.id.bt_media_codec_encode_decode)
         btMediaCodecStop = findViewById(R.id.bt_media_codec_stop)
 
