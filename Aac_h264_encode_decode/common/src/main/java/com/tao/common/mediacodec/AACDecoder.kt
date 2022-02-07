@@ -8,5 +8,26 @@
  */
 package com.tao.common.mediacodec
 
-class AACDecoder {
+import android.media.MediaCodec
+import android.media.MediaFormat
+import com.tao.common.callback.OnAudioDecodeListener
+import com.tao.common.config.AudioConfiguration
+import java.nio.ByteBuffer
+
+class AACDecoder(private val audioConfiguration: AudioConfiguration):
+        BaseAudioCodec(audioConfiguration) {
+
+    override fun onAudioOutformat(outputFormat: MediaFormat?) {
+    }
+
+    public var mListener: OnAudioDecodeListener? = null
+
+    fun setOnAudioEncodeListener(listener: OnAudioDecodeListener?) {
+        mListener = listener
+    }
+
+
+    override fun onAudioData(bb: ByteBuffer, bi: MediaCodec.BufferInfo) {
+        mListener?.onAudioPCMData(bb, bi)
+    }
 }

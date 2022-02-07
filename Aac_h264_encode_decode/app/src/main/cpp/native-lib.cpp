@@ -48,3 +48,5 @@ Java_com_tao_aac_1h264_1encode_1decode_AacManager_test_1memcpy(JNIEnv *env, jobj
 //    test_struct();
     test_strcat();
 }
+
+

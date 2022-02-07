@@ -8,14 +8,14 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/bt_media_codec_encode"
-        android:text="mediaCodec音频硬编码"
+        android:id="@+id/bt_media_codec_encode_decode"
+        android:text="开始 mediaCodec音频硬编解码"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <Button
-        android:id="@+id/bt_media_codec_decode"
-        android:text="mediaCodec音频硬解码"
+        android:id="@+id/bt_media_codec_stop"
+        android:text="停止编解码"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 

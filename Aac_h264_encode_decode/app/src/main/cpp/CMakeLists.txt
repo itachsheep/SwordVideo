@@ -35,7 +35,7 @@ file(GLOB src_cpp
         ${basic}/*.cpp
         ${CMAKE_SOURCE_DIR}/native-lib.cpp
         ${jni}/*.cpp
-        ${jni}/jni_x264_encode.cpp
+        ${jni}/jni_media_codec.cpp
 )
 
 add_library(thirdparty_aac STATIC IMPORTED)
