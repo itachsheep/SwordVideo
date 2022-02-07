@@ -95,12 +95,24 @@ class AudioMediaCodecActivity: AppCompatActivity(),IMediaCodecListener,
     override fun stop() {
     }
 
+    /**
+     * 将 AAC 解码成 PCM ，解码完成的回调
+     */
     override fun onAudioPCMData(bb: ByteBuffer, bi: MediaCodec.BufferInfo) {
-
+        LogUtils.d(tag,"onAudio ---- PCM Data")
+        var mAudio = ByteArray(bi.size)
+        bb.position(bi.offset)
+        bb.limit(bi.offset + bi.size)
+        bb.get(mAudio)
+        mFileOutputStream_PCM?.write(mAudio)
     }
 
+    /**
+     * 将 PCM 编码成 AAC ，编码完成的回调
+     */
     override fun onAudioAACData(bb: ByteBuffer, bi: MediaCodec.BufferInfo) {
         super.onAudioAACData(bb, bi)
+        LogUtils.d(tag,"onAudio --- AAC Data")
         mAudio = ByteArray(bi.size + 7)
         //添加 adts 头
         bb.position(bi.offset)
@@ -108,9 +120,12 @@ class AudioMediaCodecActivity: AppCompatActivity(),IMediaCodecListener,
         bb.get(mAudio, 7, bi.size)
         ADTSUtils.addADTStoPacket(mAudio!!, mAudio!!.size, 2, 44100, 1)
         //打印 ADTS
-        Log.e(tag,
+        LogUtils.d(tag,
                 "mAudio[0]=${mAudio!![0]} mAudio[1]=${mAudio!![1]} mAudio[2]=${mAudio!![2]} mAudio[3]=${mAudio!![3]} mAudio[4]=${mAudio!![4]} mAudio[5]=${mAudio!![5]} mAudio[6]=${mAudio!![6]}"
         )
+        /**
+         *  aac编码完成后，再继续解码，回调到 onAudioPCMData()方法
+         */
         mDecode?.enqueueCodec(mAudio!!)
         mFileOutputStream?.write(mAudio, 0, mAudio!!.size)
     }
@@ -131,7 +146,7 @@ class AudioMediaCodecActivity: AppCompatActivity(),IMediaCodecListener,
         //内部是控制编码的
         mStreamController?.stop()
         mDecode?.stop()
-        mFileOutputStream?.close()
-        mFileOutputStream_PCM?.close()
+        //mFileOutputStream?.close()
+        //mFileOutputStream_PCM?.close()
     }
 }

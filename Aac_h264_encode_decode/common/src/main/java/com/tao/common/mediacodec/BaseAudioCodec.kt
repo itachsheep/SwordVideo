@@ -71,7 +71,7 @@ abstract class BaseAudioCodec(
 //
             mBufferInfo!!.presentationTimeUs = System.nanoTime() / 1000 - mPts;
 //            mBufferInfo!!.presentationTimeUs = getPTSUs()
-            LogHelper.e(TAG, "音频时间戳：${mBufferInfo!!.presentationTimeUs / 1000_000}")
+           // LogHelper.e(TAG, "音频时间戳：${mBufferInfo!!.presentationTimeUs / 1000_000}")
             onAudioData(outputBuffer, mBufferInfo)
             prevOutputPTSUs = mBufferInfo.presentationTimeUs
             mMediaCodec!!.releaseOutputBuffer(outputBufferIndex, false)
