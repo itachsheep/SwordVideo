@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import com.tao.aac_h264_encode_decode.mediacodec.AudioMediaCodecActivity
 
 class MainActivity : AppCompatActivity() {
     private val REQUEST_OK = 10001
@@ -50,6 +51,9 @@ class MainActivity : AppCompatActivity() {
         startActivity(Intent(this,X264EncodeActivity::class.java))
     }
 
+    fun bt_media_codec_encode_decode(view: View) {
+        startActivity(Intent(this, AudioMediaCodecActivity::class.java))
+    }
 
 
     fun checkPermission(permissions: Array<String>): Boolean {

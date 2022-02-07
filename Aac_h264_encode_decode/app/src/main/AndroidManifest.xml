@@ -24,6 +24,7 @@
         <activity android:name=".AacDecodeActivity"/>
         <activity android:name=".AacEncodeActivity"/>
         <activity android:name=".X264EncodeActivity"/>
+        <activity android:name=".mediacodec.AudioMediaCodecActivity"/>
     </application>
 
 </manifest>

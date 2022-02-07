@@ -245,8 +245,9 @@ void AACEncoder::writeAACPacketToFile(uint8_t *data, int datalen) {
     LogD("after One Encode Size is : %d, isFlagGlobalHeader = %d", datalen,
          isFlagGlobalHeader);
     uint8_t *buffer = data;
+
     if (isFlagGlobalHeader) {
-        ///写入 ADTS
+        ///写入 ADTS, 实际这个逻辑没有执行到
         datalen += 7;
         uint8_t *_buffer = new uint8_t[datalen];
         memset(_buffer, 0, datalen);
