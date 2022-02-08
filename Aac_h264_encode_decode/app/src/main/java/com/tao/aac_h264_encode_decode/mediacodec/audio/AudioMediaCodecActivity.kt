@@ -40,7 +40,7 @@ class AudioMediaCodecActivity: AppCompatActivity(), IMediaCodecListener,
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_media_codec_encode_decode)
+        setContentView(R.layout.activity_media_codec_audio)
 
         AAC_DIR = getExternalFilesDir(null)?.absolutePath.toString()
         AAC_PATH = "${AAC_DIR}/mediacodec_44100_1_16_bit.aac"

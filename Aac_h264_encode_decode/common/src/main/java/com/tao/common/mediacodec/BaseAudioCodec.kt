@@ -10,7 +10,6 @@ package com.tao.common.mediacodec
 
 import android.media.MediaCodec
 import android.media.MediaFormat
-import android.util.Log
 import com.tao.common.LogHelper
 import com.tao.common.config.AudioConfiguration
 import java.nio.ByteBuffer

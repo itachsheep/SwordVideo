@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.tao.aac_h264_encode_decode.mediacodec.audio.AudioMediaCodecActivity
+import com.tao.aac_h264_encode_decode.mediacodec.video.H264MediaCodecEDActivity
 
 class MainActivity : AppCompatActivity() {
     private val REQUEST_OK = 10001
@@ -53,6 +54,10 @@ class MainActivity : AppCompatActivity() {
 
     fun bt_media_codec_encode_decode(view: View) {
         startActivity(Intent(this, AudioMediaCodecActivity::class.java))
+    }
+
+    fun bt_media_codec_video(view: View) {
+        startActivity(Intent(this,H264MediaCodecEDActivity::class.java))
     }
 
 
