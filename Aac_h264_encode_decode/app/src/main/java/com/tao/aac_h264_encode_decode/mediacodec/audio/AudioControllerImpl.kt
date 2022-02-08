@@ -6,7 +6,7 @@
  * @version         V1.0
  * @Date           2/7/22 8:23 PM
  */
-package com.tao.aac_h264_encode_decode.mediacodec
+package com.tao.aac_h264_encode_decode.mediacodec.audio
 
 import android.annotation.TargetApi
 import android.media.AudioRecord
@@ -16,7 +16,7 @@ import com.tao.common.audio.AudioUtils
 import com.tao.common.callback.OnAudioEncodeListener
 import com.tao.common.config.AudioConfiguration
 
-class AudioControllerImpl: IAudioController  {
+class AudioControllerImpl: IAudioController {
     private var mListener: OnAudioEncodeListener? = null
     private var mAudioRecord: AudioRecord? = null
     private var mAudioProcessor: AudioProcessor? = null

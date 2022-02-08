@@ -6,11 +6,10 @@
  * @version         V1.0
  * @Date           2/7/22 4:02 PM
  */
-package com.tao.aac_h264_encode_decode.mediacodec
+package com.tao.aac_h264_encode_decode.mediacodec.audio
 
 import android.media.MediaCodec
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
@@ -23,7 +22,7 @@ import java.io.File
 import java.io.FileOutputStream
 import java.nio.ByteBuffer
 
-class AudioMediaCodecActivity: AppCompatActivity(),IMediaCodecListener,
+class AudioMediaCodecActivity: AppCompatActivity(), IMediaCodecListener,
     OnAudioDecodeListener, View.OnClickListener {
     val tag = "AudioMediaCodecActivity"
     lateinit var btMediaCodecEncodeDecode: Button

@@ -81,11 +81,12 @@ void addADTStoPacket(uint8_t *packet, int packetLen, int sampleInHz, int chanCfg
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_tao_aac_1h264_1encode_1decode_mediacodec_ADTSUtils_addADTStoPacket(JNIEnv *env,
+Java_com_tao_aac_1h264_1encode_1decode_mediacodec_audio_ADTSUtils_addADTStoPacket(JNIEnv *env,
         jobject thiz,jbyteArray byteArray,jint len,
         jint profile,jint sampleRate,jint channels) {
     jbyte *arr = env->GetByteArrayElements(byteArray, 0);
     addADTStoPacket(reinterpret_cast<uint8_t *>(arr), len, sampleRate, channels, profile);
     env->ReleaseByteArrayElements(byteArray, arr, 0);
 }
+
 

@@ -8,7 +8,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import com.tao.aac_h264_encode_decode.mediacodec.AudioMediaCodecActivity
+import com.tao.aac_h264_encode_decode.mediacodec.audio.AudioMediaCodecActivity
 
 class MainActivity : AppCompatActivity() {
     private val REQUEST_OK = 10001

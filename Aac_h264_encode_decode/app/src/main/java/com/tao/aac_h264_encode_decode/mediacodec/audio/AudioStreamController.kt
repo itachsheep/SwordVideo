@@ -6,7 +6,7 @@
  * @version         V1.0
  * @Date           2/7/22 5:02 PM
  */
-package com.tao.aac_h264_encode_decode.mediacodec
+package com.tao.aac_h264_encode_decode.mediacodec.audio
 
 import android.media.MediaCodec
 import android.media.MediaFormat

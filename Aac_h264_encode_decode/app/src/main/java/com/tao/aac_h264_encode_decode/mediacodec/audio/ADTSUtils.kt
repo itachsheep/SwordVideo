@@ -1,4 +1,4 @@
-package com.tao.aac_h264_encode_decode.mediacodec
+package com.tao.aac_h264_encode_decode.mediacodec.audio
 
 object ADTSUtils {
 

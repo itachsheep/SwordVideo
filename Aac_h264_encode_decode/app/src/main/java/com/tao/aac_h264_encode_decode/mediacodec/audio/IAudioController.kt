@@ -6,7 +6,7 @@
  * @version         V1.0
  * @Date           2/7/22 5:03 PM
  */
-package com.tao.aac_h264_encode_decode.mediacodec
+package com.tao.aac_h264_encode_decode.mediacodec.audio
 
 import com.tao.common.callback.OnAudioEncodeListener
 import com.tao.common.config.AudioConfiguration
