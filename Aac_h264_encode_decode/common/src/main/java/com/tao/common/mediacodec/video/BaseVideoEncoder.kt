@@ -77,6 +77,10 @@ abstract class BaseVideoEncoder:IVideoCodec {
             mEncoderHandler = Handler(getLooper())
             mBufferInfo = MediaCodec.BufferInfo()
             //必须在  mMediaCodec?.start() 之前
+            /**
+             * 编码的地方，将自己的surface给到 canvas 来绘制，相当于绑定了输入
+             *
+             */
             mSurface = mMediaCodec!!.createInputSurface()
             mMediaCodec?.start()
             mEncoderHandler?.post(swapDataRunnable)
@@ -134,6 +138,7 @@ abstract class BaseVideoEncoder:IVideoCodec {
      * 编码函数
      */
     private fun drainEncoder() {
+        LogHelper.d(TAG,"drainEncoder ---> mMediaCodec = $mMediaCodec")
         val outBuffers = mMediaCodec?.getOutputBuffers()
         if (!isStarted) {
             // if not running anymore, complete stream
@@ -142,9 +147,11 @@ abstract class BaseVideoEncoder:IVideoCodec {
         while (isStarted) {
             encodeLock.lock()
             if (mMediaCodec != null) {
+
+                // 从输出缓冲区队列中拿到编解码后的内容，进行相应操作后释放，供下一次使用
                 val outBufferIndex = mMediaCodec?.dequeueOutputBuffer(mBufferInfo!!, 12000)
 
-
+//                LogHelper.d(TAG,"drainEncoder ---> outBufferIndex = $outBufferIndex")
                 if (outBufferIndex == MediaCodec.INFO_OUTPUT_FORMAT_CHANGED) {
                     onVideoOutformat(mMediaCodec?.outputFormat)
                 }
@@ -157,7 +164,7 @@ abstract class BaseVideoEncoder:IVideoCodec {
                     mBufferInfo!!.presentationTimeUs = System.nanoTime()/1000-mPts;
 
 
-                    LogHelper.e(TAG,"视频时间戳：${mBufferInfo!!.presentationTimeUs/1000_000}")
+//                    LogHelper.e(TAG,"视频时间戳：${mBufferInfo!!.presentationTimeUs/1000_000}")
                     if (!mPause) {
                         onVideoEncode(bb, mBufferInfo!!)
                     }

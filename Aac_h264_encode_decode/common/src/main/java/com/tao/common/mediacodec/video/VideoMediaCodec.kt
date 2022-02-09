@@ -35,6 +35,9 @@ object VideoMediaCodec {
             format.setInteger(MediaFormat.KEY_COMPLEXITY, MediaCodecInfo.EncoderCapabilities.BITRATE_MODE_CBR)
 
             try {
+                /**
+                 * 编码创建 BaseVideoEncoder 不需要sufrace
+                 */
                 mediaCodec = MediaCodec.createEncoderByType(videoConfiguration.mime)
                 mediaCodec.configure(format, null, null, MediaCodec.CONFIGURE_FLAG_ENCODE)
                 LogHelper.d(TAG, "mediacodec init successed!")
@@ -44,6 +47,9 @@ object VideoMediaCodec {
             }
         } else if (videoConfiguration.codeType == VideoConfiguration.ICODEC.DECODE) {
             try {
+                /**
+                 * 解码创建 BaseVideoDecoder 需要sufrace
+                 */
                 mediaCodec = MediaCodec.createDecoderByType(videoConfiguration.mime)
                 if (videoConfiguration.surface == null)
                     throw NullPointerException("surface is null?")

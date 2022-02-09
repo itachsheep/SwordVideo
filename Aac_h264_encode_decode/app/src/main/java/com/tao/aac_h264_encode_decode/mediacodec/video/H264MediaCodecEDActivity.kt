@@ -16,13 +16,16 @@ import android.view.SurfaceView
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.tao.aac_h264_encode_decode.LogUtils
 import com.tao.aac_h264_encode_decode.R
 import com.tao.common.callback.OnVideoEncodeListener
 import com.tao.common.config.VideoConfiguration
+import java.io.File
 import java.nio.ByteBuffer
 
 class H264MediaCodecEDActivity:AppCompatActivity(), SurfaceHolder.Callback,
     OnVideoEncodeListener, View.OnClickListener {
+    val tag = "H264MediaCodecActivity"
     private var mH264Encoder: WriteH264? = null
     private var mH264Decoder: H264Decoder? = null
     private var mH264Buffer: ByteArray? = null
@@ -46,6 +49,11 @@ class H264MediaCodecEDActivity:AppCompatActivity(), SurfaceHolder.Callback,
 
         H264_DIR = getExternalFilesDir(null)?.absolutePath.toString()
         H264_OUTPUT = "${H264_DIR}/mediacodec_video.h264"
+        val file = File(H264_OUTPUT)
+        if(file.exists()) {
+            file.delete()
+        }
+        LogUtils.d(tag,"onCreate H264_OUTPUT = $H264_OUTPUT")
         init()
     }
 
@@ -53,7 +61,8 @@ class H264MediaCodecEDActivity:AppCompatActivity(), SurfaceHolder.Callback,
         mH264Encoder = WriteH264(H264_OUTPUT)
         mH264Decoder = H264Decoder()
         surfaceView.getHolder().addCallback(this)
-        mH264Encoder?.prepare(applicationContext, VideoConfiguration.createDefault())
+//        mH264Encoder?.prepare(applicationContext, VideoConfiguration.createDefault())
+        mH264Encoder?.prepare(this, VideoConfiguration.createDefault())
         mH264Encoder?.setOnEncodeListener(this)
     }
 
@@ -109,7 +118,6 @@ class H264MediaCodecEDActivity:AppCompatActivity(), SurfaceHolder.Callback,
                     .build()
             )
         } else {
-            //todo： 编码完成后，解码，但是并没有输出到某个文件？？？
             // pass byte[] to decoder's queue to render asap
             mH264Decoder?.enqueue(
                 mH264Buffer!!,

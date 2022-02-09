@@ -100,7 +100,7 @@ class WriteH264(val outputPath: String):H264Encoder() {
             LogHelper.e(TAG, " 关键帧 " + h264Arrays.size)
         } else {
             //普通帧
-            LogHelper.e(TAG, " 普通帧 " + h264Arrays.size)
+            //LogHelper.e(TAG, " 普通帧 " + h264Arrays.size)
         }
         listener?.onVideoEncode(bb!!,bi)
         mFileOutputStream?.write(h264Arrays)

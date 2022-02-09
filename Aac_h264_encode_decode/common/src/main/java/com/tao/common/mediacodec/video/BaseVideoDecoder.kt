@@ -92,12 +92,18 @@ open class BaseVideoDecoder: IVideoCodec {
             isStarted = isRuning
         }
         /**
-         * 放入编码器
+         * 放入解码器
+         * 这里 BaseVideoDecoder 和 BaseVideoEncoder 虽然拆开
+         * 但是本质可以写到一起，
+         * 他们之间的关联主要是通过surface关联
+         * 绘制是绘制到 mediaCodec 创建的surface上
+         *
          */
         fun enqueue(data: ByteArray,timeoutUs:Long ,flag: Int) {
             if (mConfigured && isStarted) {
                 try {
                     decodeLock.lock()
+                    // 从输入缓冲区队列中取出可用缓冲区，并填充数据
                     val index = mMediaCodec?.dequeueInputBuffer(timeoutUs)
                     if (index!! >= 0) {
                         val buffer: ByteBuffer?
@@ -108,6 +114,7 @@ open class BaseVideoDecoder: IVideoCodec {
                         } else {
                             buffer = mMediaCodec?.getInputBuffer(index)
                         }
+                        // 并填充数据
                         if (buffer != null) {
                             buffer.put(data, 0, data.size)
                             mMediaCodec?.queueInputBuffer(index, 0, data.size, timeoutUs, flag)
@@ -133,12 +140,16 @@ open class BaseVideoDecoder: IVideoCodec {
          * 线程编码
          */
         override fun run() {
+            LogHelper.d(TAG,"run ---> isStarted = $isStarted" +
+                    ", mMediaCodec = $mMediaCodec")
             try {
                 val info = MediaCodec.BufferInfo()
 //                val outBuffers = mMediaCodec?.getOutputBuffers()
                 while (isStarted) {
                     if (mConfigured) {
+                        // 从输出缓冲区队列中拿到编解码后的内容，进行相应操作后释放，供下一次使用
                         val index = mMediaCodec?.dequeueOutputBuffer(info, mTimeoutUs)
+//                        LogHelper.d(TAG,"run --->   mMediaCodec = $mMediaCodec")
                         if (index!! >= 0) {
 //                            val byteBuffer = outBuffers!![index]
 //                            byteBuffer.position(info.offset)
