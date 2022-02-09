@@ -39,6 +39,7 @@ https://juejin.cn/user/3368559355637566/posts   DevYk博客
 https://github.com/yangkun19921001/AVSample  DevYk github (yangkun19921001/AVSample)
 
 1，aac 编解码
+
 `使用lib_aac.a 完成pcm-> aac， aac-> pcm`  
 
 `代码：SwordVideo/Aac_h264_encode_decode`
@@ -69,7 +70,7 @@ https://www.jianshu.com/p/14daab91b951  (Android音视频之使用MediaCodec编�
 `代码：SwordVideo/Aac_h264_encode_decode`
 
 
-5，
+5，==
 
 
 
