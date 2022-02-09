@@ -44,19 +44,22 @@ https://github.com/yangkun19921001/AVSample  DevYk github (yangkun19921001/AVSam
 
 
 2，h264 编码
-`使用lib_x264.a 完成 yuv->x264, x264->yuv`
+`使用lib_x264.a 完成 yuv->x264, x264->yuv`  
+
 `代码：SwordVideo/Aac_h264_encode_decode`
 
 3，MediaCodec AAC 硬编解码  
 
 https://www.jianshu.com/p/14daab91b951  (Android音视频之使用MediaCodec编解码AAC)
 
-`使用mediaCodec完成 pcm -> aac, aac->pcm 硬编码`
+`使用mediaCodec完成 pcm -> aac, aac->pcm 硬编码`  
+
 `代码：SwordVideo/Aac_h264_encode_decode`
 
 4，MediaCodec h264 硬编解码
 
-`使用mediaCodec，通过canvas绘制在surface上的帧画面，编码成x264`
+`使用mediaCodec，通过canvas绘制在surface上的帧画面，编码成x264`  
+
 `代码：SwordVideo/Aac_h264_encode_decode`
 
 
