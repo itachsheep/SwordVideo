@@ -80,8 +80,14 @@ abstract class BaseVideoEncoder:IVideoCodec {
             /**
              * 编码的地方，将自己的surface给到 canvas 来绘制，相当于绑定了输入
              *
+             *  假如想处理原始视频帧，需要将原始视频帧编码为类似于h264或者其他格式，
+             *  需要调用createInputSurface()方法产生一个surface，
+             *  并且必须在configure之后，这个surface上目前是空数据，
+             *  然后调用start方法，当有数据注入到surface时，
              */
             mSurface = mMediaCodec!!.createInputSurface()
+            LogHelper.d(TAG,"start createInputSurface surface = $mSurface")
+
             mMediaCodec?.start()
             mEncoderHandler?.post(swapDataRunnable)
             isStarted = true

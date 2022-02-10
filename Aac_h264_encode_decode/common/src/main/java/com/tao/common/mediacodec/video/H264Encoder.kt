@@ -31,8 +31,8 @@ open class H264Encoder:BaseVideoEncoder() {
     /**
      * 设置编码回调
      */
-    /*fun setOnVideoEncodeListener(listener: OnVideoEncodeListener) {
+    fun setOnVideoEncodeListener(listener: OnVideoEncodeListener) {
         mListener = listener
-    }*/
+    }
 
 }

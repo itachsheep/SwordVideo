@@ -49,6 +49,10 @@ object VideoMediaCodec {
             try {
                 /**
                  * 解码创建 BaseVideoDecoder 需要sufrace
+                 * 这个surface 是用于将解码的数据显示 ？？？
+                 *
+                 * ---（在不解码生成 outputbuffers 的时候或者
+                 * 不想将生成的 outputbuffers 渲染到surface的时候，可以设置为null。）
                  */
                 mediaCodec = MediaCodec.createDecoderByType(videoConfiguration.mime)
                 if (videoConfiguration.surface == null)
@@ -59,6 +63,7 @@ object VideoMediaCodec {
                 //csd-0 含义此处有介绍
                 // @see https://developer.android.com/reference/android/media/MediaCodec
                 format.setByteBuffer("csd-0", videoConfiguration.spspps)
+                LogHelper.d(TAG,"getVideoMediaCodec config surface = ${videoConfiguration.surface}")
                 mediaCodec.configure(format, videoConfiguration.surface, null, 0)
             } catch (e: Exception) {
                 e.printStackTrace()
