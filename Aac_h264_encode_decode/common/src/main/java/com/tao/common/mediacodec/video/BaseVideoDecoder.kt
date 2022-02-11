@@ -158,6 +158,8 @@ open class BaseVideoDecoder: IVideoCodec {
 //                            byteBuffer.get(byteArray)
 //                            baseVideoEncoder?.onVideoEncode(byteBuffer, info)
 //                             setting true is telling system to render frame onto Surface
+                            ////使用默认的时间戳渲染视频
+                            //使用surface做为输出时与使用Bytebuffer基本一致，只是在surface模式下所有的bytebuffer和image全部为null。
                             mMediaCodec?.releaseOutputBuffer(index, true)
                             if (info.flags and MediaCodec.BUFFER_FLAG_END_OF_STREAM == MediaCodec.BUFFER_FLAG_END_OF_STREAM) {
                                 break
