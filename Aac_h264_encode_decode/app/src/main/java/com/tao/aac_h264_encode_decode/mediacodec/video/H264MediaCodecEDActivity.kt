@@ -112,6 +112,10 @@ class H264MediaCodecEDActivity:AppCompatActivity(), SurfaceHolder.Callback,
             // like H.264, that let's configure the decoder
             mH264Decoder?.configure(
                 VideoConfiguration.Builder()
+                    /**
+                     * 设置这个surface只是用于显示的
+                     * 将mediaCodec里surface内容显示到 Android surfaceView
+                     */
                     .setSurface(surfaceView.holder.surface)
                     .setSpsPpsBuffer(ByteBuffer.wrap(mH264Buffer, 0, info.size))
                     .setCodeType(VideoConfiguration.ICODEC.DECODE)
