@@ -27,8 +27,13 @@ class MainActivity : AppCompatActivity() {
 //        findViewById<TextView>(R.id.sample_text).text = stringFromJNI()
     }
 
-    fun bt_aac_encode(view: View) {}
-    fun bt_aac_decode(view: View) {}
+    fun bt_aac_encode(view: View) {
+
+    }
+
+    fun bt_aac_decode(view: View) {
+
+    }
 
 
     private val request_permission = arrayOf(

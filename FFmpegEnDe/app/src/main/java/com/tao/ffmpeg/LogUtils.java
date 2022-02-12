@@ -11,7 +11,7 @@ package com.tao.ffmpeg;
 import android.util.Log;
 
 public class LogUtils {
-    private static final String TAG = "AacH264.";
+    private static final String TAG = "FFmpegUse.";
 
     public static void d(String tag, String msg) {
         Log.d(TAG + tag,msg);
