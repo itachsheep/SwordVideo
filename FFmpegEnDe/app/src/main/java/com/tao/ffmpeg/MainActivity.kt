@@ -1,6 +1,7 @@
 package com.tao.ffmpeg
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun bt_aac_encode(view: View) {
-
+        startActivity(Intent(this,FFmpegAACEncodeActivity::class.java))
     }
 
     fun bt_aac_decode(view: View) {
@@ -78,7 +79,7 @@ class MainActivity : AppCompatActivity() {
     companion object {
         // Used to load the 'native-lib' library on application startup.
         init {
-            System.loadLibrary("native-lib")
+            System.loadLibrary("use_ffmpeg")
         }
     }
 

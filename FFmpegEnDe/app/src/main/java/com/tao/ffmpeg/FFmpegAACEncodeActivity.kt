@@ -13,7 +13,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.tao.common.audio.AudioCapture
 
-class FFmpegAACDecodeActivity:AppCompatActivity() {
+class FFmpegAACEncodeActivity:AppCompatActivity() {
     val tag = "FFmpegAACDecodeActivity"
 
     private lateinit var fFmpegAacNative: FFmpegAacNative
