@@ -7,11 +7,18 @@
 #include <android/log.h>
 #include <string>
 
-#define TAG "AacH264."
+#define TAG "FFmpegUse."
 #define LogD(...) __android_log_print(ANDROID_LOG_DEBUG,TAG,__VA_ARGS__)
 #define LogE(...) __android_log_print(ANDROID_LOG_ERROR,TAG,__VA_ARGS__)
 
 #define simpleLog() LogD("%s --> %s",__FILE_NAME__, __FUNCTION__)
+
+
+static inline long long currentTimeMills(){
+    struct timeval tv;
+    gettimeofday(&tv, NULL);
+    return (long long)tv.tv_sec * 1000 + tv.tv_usec / 1000;
+}
 
 typedef unsigned char byte;
 
