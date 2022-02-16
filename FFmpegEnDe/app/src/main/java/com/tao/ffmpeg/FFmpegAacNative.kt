@@ -10,7 +10,9 @@ package com.tao.ffmpeg
 
 class FFmpegAacNative {
 
+    // aac encoder 编码
     public external fun init(outAACPath: String, bitRate: Int, channels: Int, sampleRate: Int): Int;
+    // aac decoder 解码
     public external fun init(inAACPath: String, outPCMPath: String): Int;
     public external fun encode(byteArray: ByteArray): Int;
     public external fun release();

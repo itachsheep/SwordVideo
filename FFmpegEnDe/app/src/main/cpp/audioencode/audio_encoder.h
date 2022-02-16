@@ -1,0 +1,8 @@
+//
+// Created by wei tao on 2/16/22.
+//
+
+#ifndef FFMPEGENDE_AUDIO_ENCODER_H
+#define FFMPEGENDE_AUDIO_ENCODER_H
+
+#endif //FFMPEGENDE_AUDIO_ENCODER_H
