@@ -12,7 +12,7 @@
  *
  * avio_open()：打开输出文件。
  *
- * av_new_stream()：创建输出码流的AVStream。
+ * avformat_new_stream() /av_new_stream()：创建输出码流的AVStream。
  *
  * avcodec_find_encoder()：查找编码器。
  *
@@ -82,7 +82,7 @@ int AudioEncoder::alloc_audio_stream(const char *code_name) {
     LogD("avCodecContext->channels is %d", this->pCodeccCtx->channels);
     this->pCodeccCtx->flags |= CODEC_FLAG_GLOBAL_HEADER;
 
-    //找到编码器
+    //找到编码器，查找编码器
     //也可以通过如下 API 寻找
     //avcodec_find_encoder(AV_CODEC_ID_MP3);
     AVCodec *avCodec = avcodec_find_encoder_by_name(code_name);
@@ -196,6 +196,15 @@ AVPacket * AudioEncoder::alloc_avpacket() {
     return pPacket;
 }
 
+/**
+ * 1，注册FFmpeg所有编解码器
+ * @param outAACPath
+ * @param publishBitRate
+ * @param audioChannels
+ * @param audioSampleRate
+ * @param codec_name
+ * @return
+ */
 int AudioEncoder::init(const char *outAACPath, int publishBitRate,
         int audioChannels, int audioSampleRate, const char *codec_name) {
     this->mChannels = audioChannels;
