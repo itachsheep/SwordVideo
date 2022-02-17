@@ -30,7 +30,7 @@
 
 //todo：这个outfile用途
 
-FILE *outFile;
+//FILE *outFile;
 
 /**
  * 为 AAC 添加  adts
@@ -235,8 +235,8 @@ int AudioEncoder::init(const char *outAACPath, int publishBitRate,
         return 0;
     }
 
-    //todo:
-    outFile = fopen("sdcard/avsample/ffmpeg_audio_encode.aac", "wb");
+    ///storage/emulated/0/Android/data/com.tao.ffmpeg/files/ffmpeg_aac_441.aac
+//    outFile = fopen("/storage/emulated/0/Android/data/com.tao.ffmpeg/files/ffmpeg_audio_encode_tmp.aac", "wb");
 
     av_dump_format(pFormatCtx, 0, outAACPath, 1);
 
@@ -258,7 +258,7 @@ void AudioEncoder::writeAACPakcetToFile(uint8_t *data, int datalen) {
     memset(buffer, 0, datalen + 7);
     memcpy(buffer + 7, data, datalen);
     addADTStoPacket(buffer, datalen + 7);
-    fwrite(buffer, sizeof(uint8_t), datalen + 7, outFile);
+//    fwrite(buffer, sizeof(uint8_t), datalen + 7, outFile);
     delete[] buffer;
 }
 
@@ -366,7 +366,7 @@ void AudioEncoder::release() {
         av_frame_free(&this->pFrame);
     }
 
-    fclose(outFile);
+//    fclose(outFile);
 }
 
 void AudioEncoder::addEncodeCallback(EncodeCallback encodeCallback) {

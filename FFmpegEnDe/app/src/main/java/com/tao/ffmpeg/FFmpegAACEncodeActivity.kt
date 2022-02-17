@@ -12,12 +12,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.tao.common.audio.AudioCapture
+import java.io.File
 
-class FFmpegAACEncodeActivity:AppCompatActivity() {
+class FFmpegAACEncodeActivity : AppCompatActivity() {
     val tag = "FFmpegAACDecodeActivity"
 
     private lateinit var fFmpegAacNative: FFmpegAacNative
-    private lateinit var mOutAAcPath:String
+    private lateinit var mOutAAcPath: String
 
     @Volatile
     private var isInit = -1
@@ -28,7 +29,21 @@ class FFmpegAACEncodeActivity:AppCompatActivity() {
         mOutAAcPath = getExternalFilesDir(null)?.absolutePath +
                 "/ffmpeg_aac_441.aac"
 
-        LogUtils.d(tag,"onCreate mOutAAcPath = $mOutAAcPath")
+        ///storage/emulated/0/Android/data/com.tao.ffmpeg/files/ffmpeg_aac_441.aac
+        LogUtils.d(tag, "onCreate mOutAAcPath = $mOutAAcPath")
+
+        val tmpPath =
+            "/storage/emulated/0/Android/data/com.tao.ffmpeg/files/ffmpeg_audio_encode_tmp.aac";
+        val tmpFile: File = File(tmpPath)
+        if (tmpFile.exists()) {
+            tmpFile.delete()
+        }
+
+        val outFile = File(mOutAAcPath)
+        if(outFile.exists()){
+            outFile.delete()
+        }
+
         init()
     }
 
@@ -40,13 +55,13 @@ class FFmpegAACEncodeActivity:AppCompatActivity() {
         AudioCapture.stopRecording()
     }
 
-    private fun init(){
+    private fun init() {
         AudioCapture.init()
         fFmpegAacNative = FFmpegAacNative()
         AudioCapture.addRecordListener(object : AudioCapture.OnRecordListener {
             override fun onStart(sampleRate: Int, channels: Int, sampleFormat: Int) {
-                isInit = fFmpegAacNative.init(mOutAAcPath,64*1000, 1, 44100)
-                LogUtils.d(tag,"onStart isInit = $isInit")
+                isInit = fFmpegAacNative.init(mOutAAcPath, 64 * 1000, 1, 44100)
+                LogUtils.d(tag, "onStart isInit = $isInit")
             }
 
             override fun onStop() {
@@ -54,14 +69,14 @@ class FFmpegAACEncodeActivity:AppCompatActivity() {
             }
 
             override fun onData(byteArray: ByteArray) {
-                if(isInit == 0) {
+                if (isInit == 0) {
                     AudioCapture.stopRecording()
                     onStop()
                     isInit = -1
                     return
                 }
 
-                if(isInit == 1) {
+                if (isInit == 1) {
                     fFmpegAacNative.encode(byteArray)
                 }
             }
