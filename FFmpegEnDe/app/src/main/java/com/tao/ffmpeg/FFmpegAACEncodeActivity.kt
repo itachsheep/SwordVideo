@@ -25,7 +25,7 @@ class FFmpegAACEncodeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_ffmpeg_aac_decoder)
+        setContentView(R.layout.activity_ffmpeg_aac_encoder)
         mOutAAcPath = getExternalFilesDir(null)?.absolutePath +
                 "/ffmpeg_aac_441.aac"
 
@@ -47,11 +47,11 @@ class FFmpegAACEncodeActivity : AppCompatActivity() {
         init()
     }
 
-    fun startDecode(view: View) {
+    fun startEncode(view: View) {
         AudioCapture.startRecording()
     }
 
-    fun stopDecode(view: View) {
+    fun stopEncode(view: View) {
         AudioCapture.stopRecording()
     }
 

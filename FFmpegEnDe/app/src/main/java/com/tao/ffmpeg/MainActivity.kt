@@ -14,6 +14,11 @@ class MainActivity : AppCompatActivity() {
     private val REQUEST_OK = 10001
     private val tag = "MainActivity"
 
+    private val request_permission = arrayOf(
+        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+        Manifest.permission.READ_EXTERNAL_STORAGE,
+        Manifest.permission.RECORD_AUDIO,
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,15 +38,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun bt_aac_decode(view: View) {
-
+        startActivity(Intent(this,FFmpegAACDecodeActivity::class.java))
     }
-
-
-    private val request_permission = arrayOf(
-        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-        Manifest.permission.READ_EXTERNAL_STORAGE,
-        Manifest.permission.RECORD_AUDIO,
-    )
 
     fun checkPermission(permissions: Array<String>): Boolean {
         for (permission in permissions) {

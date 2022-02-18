@@ -9,14 +9,14 @@
     tools:context=".MainActivity">
 
     <Button
-        android:text="开始解码"
-        android:onClick="startDecode"
+        android:text="开始编码"
+        android:onClick="startEncode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <Button
-        android:text="停止解码"
-        android:onClick="stopDecode"
+        android:text="停止编码"
+        android:onClick="stopEncode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 </LinearLayout>

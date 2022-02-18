@@ -10,14 +10,14 @@
 
     <Button
         android:onClick="bt_aac_encode"
-        android:text="aac encode"
+        android:text="aac encode 编码"
         android:textAllCaps="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <Button
         android:onClick="bt_aac_decode"
-        android:text="aac decode"
+        android:text="aac decode 解码"
         android:textAllCaps="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
