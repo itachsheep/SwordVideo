@@ -72,6 +72,10 @@ class FFmpegAACDecodeActivity :AppCompatActivity(){
         fFmpegAacNative.release()
     }
 
+    fun bt_test_code(view: View) {
+        fFmpegAacNative.test()
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         fFmpegAacNative.release()

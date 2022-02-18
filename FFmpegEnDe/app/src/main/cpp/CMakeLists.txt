@@ -31,7 +31,7 @@ file(GLOB src_cpp
         ${jni}/*.cpp
         ${audioEncode}/*.cpp
         ${audioDecode}/*.cpp
-        ${audioEncode}/audio_decoder.cpp
+        ${jni}/jni_ffmpeg_aac_decoder.cpp
 )
 
 project("ffmpeg")

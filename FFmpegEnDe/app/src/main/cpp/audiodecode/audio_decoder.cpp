@@ -185,6 +185,7 @@ void AudioDecoder::release() {
 }
 
 void *_start(void *pVoid) {
+    simpleLog();
     AudioDecoder *decode = static_cast<AudioDecoder *>(pVoid);
     decode->startDecoder();
     return 0;
@@ -202,10 +203,10 @@ void AudioDecoder::startDecoder() {
     simpleLog();
     while (isStart) {
         count++;
-        LogE("decode startDecoder！%d %d\n", isStart, count);
-        if (count == 42) {
+        LogD("decode startDecoder count = %d \n", count);
+//        if (count == 42) {
 //            break;
-        }
+//        }
 
         AVPacket *packet = av_packet_alloc();
         AACPacket *pck = new AACPacket();

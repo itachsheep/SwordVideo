@@ -33,15 +33,6 @@ Java_com_tao_ffmpeg_FFmpegAacNative_init__Ljava_lang_String_2III(
     return ret;
 }
 
-
-extern "C"
-JNIEXPORT jint JNICALL
-Java_com_tao_ffmpeg_FFmpegAacNative_init__Ljava_lang_String_2Ljava_lang_String_2(
-        JNIEnv *env,jobject thiz,
-        jstring in_aacpath,jstring out_pcmpath) {
-    return 0;
-}
-
 extern "C"
 JNIEXPORT jint JNICALL
 Java_com_tao_ffmpeg_FFmpegAacNative_encode(
