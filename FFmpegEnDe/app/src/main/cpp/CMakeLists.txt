@@ -10,6 +10,7 @@ cmake_minimum_required(VERSION 3.10.2)
 set(jni ${CMAKE_SOURCE_DIR}/jni)
 set(utils ${CMAKE_SOURCE_DIR}/utils)
 set(audioEncode ${CMAKE_SOURCE_DIR}/audioencode)
+set(audioDecode ${CMAKE_SOURCE_DIR}/audiodecode)
 
 #三方
 set(THIRD_PARTY_ROOT ${CMAKE_SOURCE_DIR}/thirdparty)
@@ -22,13 +23,15 @@ include_directories(
         ${jni}
         ${utils}
         ${audioEncode}
+        ${audioDecode}
         ${FFMPEG_PATH}/include
 )
 
 file(GLOB src_cpp
         ${jni}/*.cpp
         ${audioEncode}/*.cpp
-        ${audioEncode}/audio_encoder.cpp
+        ${audioDecode}/*.cpp
+        ${audioEncode}/audio_decoder.cpp
 )
 
 project("ffmpeg")

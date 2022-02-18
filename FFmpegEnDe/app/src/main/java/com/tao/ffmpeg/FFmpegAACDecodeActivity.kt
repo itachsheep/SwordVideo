@@ -37,9 +37,13 @@ class FFmpegAACDecodeActivity :AppCompatActivity(){
         ///storage/emulated/0/Android/data/com.tao.ffmpeg/files
         val dir = getExternalFilesDir(null)?.absolutePath
 
-        //1
-        mInPath = "$dir/source_dd.aac"
+        //1, aac -> pcm
+        mInPath = "$dir/ffmpeg_aac_441.aac"
         mOutPath = "$dir/ffmpeg_aac2pcm.pcm"
+
+        //2, h264 -> yuv
+
+
 
         LogUtils.d(tag,"init mInPath =  $mInPath")
         LogUtils.d(tag,"init mOutPath =  $mOutPath")
