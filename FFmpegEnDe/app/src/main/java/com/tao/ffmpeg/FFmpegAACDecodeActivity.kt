@@ -41,9 +41,6 @@ class FFmpegAACDecodeActivity :AppCompatActivity(){
         mInPath = "$dir/ffmpeg_aac_441.aac"
         mOutPath = "$dir/ffmpeg_aac2pcm.pcm"
 
-        //2, h264 -> yuv
-
-
 
         LogUtils.d(tag,"init mInPath =  $mInPath")
         LogUtils.d(tag,"init mOutPath =  $mOutPath")

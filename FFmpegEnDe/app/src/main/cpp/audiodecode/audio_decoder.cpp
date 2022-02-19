@@ -44,6 +44,9 @@ int AudioDecoder::alloc_audio_stream(const char *code_name) {
             LogE("编码格式: AV_CODEC_ID_MP3");
             break;
         case AV_CODEC_ID_AAC:
+            LogE("编码格式: AV_CODEC_ID_AAC");
+            break;
+        case AV_CODEC_ID_H264:
             LogE("编码格式: AV_CODEC_ID_H264");
             break;
         default:
