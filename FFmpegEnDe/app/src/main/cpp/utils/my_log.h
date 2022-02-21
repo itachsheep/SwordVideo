@@ -9,7 +9,9 @@
 
 #define TAG "FFmpegUse."
 #define LogD(...) __android_log_print(ANDROID_LOG_DEBUG,TAG,__VA_ARGS__)
+#define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,TAG,__VA_ARGS__)
 #define LogE(...) __android_log_print(ANDROID_LOG_ERROR,TAG,__VA_ARGS__)
+#define LOGE(...) __android_log_print(ANDROID_LOG_ERROR,TAG,__VA_ARGS__)
 
 #define simpleLog() LogD("%s --> %s",__FILE_NAME__, __FUNCTION__)
 
