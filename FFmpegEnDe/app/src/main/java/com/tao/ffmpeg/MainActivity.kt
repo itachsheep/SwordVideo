@@ -6,9 +6,10 @@ import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import com.tao.ffmpeg.aac.FFmpegAACDecodeActivity
+import com.tao.ffmpeg.aac.FFmpegAACEncodeActivity
 
 class MainActivity : AppCompatActivity() {
     private val REQUEST_OK = 10001
@@ -34,11 +35,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun bt_aac_encode(view: View) {
-        startActivity(Intent(this,FFmpegAACEncodeActivity::class.java))
+        startActivity(Intent(this, FFmpegAACEncodeActivity::class.java))
     }
 
     fun bt_aac_decode(view: View) {
-        startActivity(Intent(this,FFmpegAACDecodeActivity::class.java))
+        startActivity(Intent(this, FFmpegAACDecodeActivity::class.java))
     }
 
     fun checkPermission(permissions: Array<String>): Boolean {

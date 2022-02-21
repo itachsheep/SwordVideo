@@ -20,9 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FFmpegAACEncodeActivity"/>
+        <activity android:name=".aac.FFmpegAACEncodeActivity"/>
 
-        <activity android:name=".FFmpegAACDecodeActivity"/>
+        <activity android:name=".aac.FFmpegAACDecodeActivity"/>
     </application>
 
 </manifest>

@@ -11,6 +11,8 @@ set(jni ${CMAKE_SOURCE_DIR}/jni)
 set(utils ${CMAKE_SOURCE_DIR}/utils)
 set(audioEncode ${CMAKE_SOURCE_DIR}/audioencode)
 set(audioDecode ${CMAKE_SOURCE_DIR}/audiodecode)
+set(h264Encode ${CMAKE_SOURCE_DIR}/h264encode)
+
 
 #三方
 set(THIRD_PARTY_ROOT ${CMAKE_SOURCE_DIR}/thirdparty)
@@ -24,6 +26,7 @@ include_directories(
         ${utils}
         ${audioEncode}
         ${audioDecode}
+        ${h264Encode}
         ${FFMPEG_PATH}/include
 )
 
@@ -31,7 +34,8 @@ file(GLOB src_cpp
         ${jni}/*.cpp
         ${audioEncode}/*.cpp
         ${audioDecode}/*.cpp
-        ${jni}/jni_ffmpeg_aac_decoder.cpp
+        ${h264Encode}/*.cpp
+        ${jni}/jni_ffmpeg_h264_encode.cpp
 )
 
 project("ffmpeg")
