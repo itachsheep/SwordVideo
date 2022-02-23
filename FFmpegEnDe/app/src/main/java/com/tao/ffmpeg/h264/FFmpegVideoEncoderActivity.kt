@@ -10,10 +10,12 @@ package com.tao.ffmpeg.h264
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.tao.ffmpeg.FFmpegH264Native
 import com.tao.ffmpeg.LogUtils
 import com.tao.ffmpeg.R
+import java.io.File
 
 class FFmpegVideoEncoderActivity:AppCompatActivity() {
     val tag = "FFmpegVideoEncoder"
@@ -27,6 +29,18 @@ class FFmpegVideoEncoderActivity:AppCompatActivity() {
         mInYuvPath = "$dir/akiyo_i420_176_144.yuv"
         mOutH264Path = "$dir/ffmpeg_out_h264.h264"
         LogUtils.d(tag,"onCreate mInYuvPath = $mInYuvPath")
+
+        val inFile = File(mInYuvPath)
+        if(!inFile.exists()) {
+            Toast.makeText(this,"输入yuv文件不存在",Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val outFile = File(mOutH264Path)
+        if(outFile.exists()){
+            outFile.delete();
+        }
+
         fFmpegH264Native = FFmpegH264Native()
     }
 

@@ -6,6 +6,8 @@
 #define FFMPEGENDE_YUV_H264_ENCODE_H
 
 #include "my_log.h"
+#include <pthread.h>
+
 #define X264 "libx264"
 extern "C" {
 #include "libavcodec/avcodec.h"

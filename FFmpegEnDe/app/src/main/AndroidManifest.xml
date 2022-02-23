@@ -21,8 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".aac.FFmpegAACEncodeActivity"/>
-
         <activity android:name=".aac.FFmpegAACDecodeActivity"/>
+        <activity android:name=".h264.FFmpegVideoEncoderActivity"/>
     </application>
 
 </manifest>

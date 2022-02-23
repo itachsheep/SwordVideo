@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.tao.ffmpeg.aac.FFmpegAACDecodeActivity
 import com.tao.ffmpeg.aac.FFmpegAACEncodeActivity
+import com.tao.ffmpeg.h264.FFmpegVideoEncoderActivity
 
 class MainActivity : AppCompatActivity() {
     private val REQUEST_OK = 10001
@@ -40,6 +41,10 @@ class MainActivity : AppCompatActivity() {
 
     fun bt_aac_decode(view: View) {
         startActivity(Intent(this, FFmpegAACDecodeActivity::class.java))
+    }
+
+    fun bt_h264_encode(view: View) {
+        startActivity(Intent(this,FFmpegVideoEncoderActivity::class.java))
     }
 
     fun checkPermission(permissions: Array<String>): Boolean {
