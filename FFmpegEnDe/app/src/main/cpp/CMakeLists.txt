@@ -12,7 +12,7 @@ set(utils ${CMAKE_SOURCE_DIR}/utils)
 set(audioEncode ${CMAKE_SOURCE_DIR}/audioencode)
 set(audioDecode ${CMAKE_SOURCE_DIR}/audiodecode)
 set(h264Encode ${CMAKE_SOURCE_DIR}/h264encode)
-
+set(h264Decode ${CMAKE_SOURCE_DIR}/h264decode)
 
 #三方
 set(THIRD_PARTY_ROOT ${CMAKE_SOURCE_DIR}/thirdparty)
@@ -27,6 +27,7 @@ include_directories(
         ${audioEncode}
         ${audioDecode}
         ${h264Encode}
+        ${h264Decode}
         ${FFMPEG_PATH}/include
 )
 
@@ -35,6 +36,7 @@ file(GLOB src_cpp
         ${audioEncode}/*.cpp
         ${audioDecode}/*.cpp
         ${h264Encode}/*.cpp
+        ${h264Decode}/*.cpp
         ${jni}/jni_ffmpeg_h264_encode.cpp
 )
 

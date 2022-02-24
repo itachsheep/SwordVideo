@@ -23,6 +23,7 @@
         <activity android:name=".aac.FFmpegAACEncodeActivity"/>
         <activity android:name=".aac.FFmpegAACDecodeActivity"/>
         <activity android:name=".h264.FFmpegVideoEncoderActivity"/>
+        <activity android:name=".h264.FFmpegVideoDecoderActivity"/>
     </application>
 
 </manifest>
