@@ -25,8 +25,8 @@ class FFmpegH264Native {
      * 解码初始化
      */
     external fun initDecode(
-        inYUV420spPath: String,
-        outH264Path: String,
+        inH264Path: String,
+        outYUVPath: String,
         width: Int,
         height: Int,
         videoRate: Int

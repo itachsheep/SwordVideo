@@ -44,7 +44,7 @@ private:
     FILE *pOutFile = 0;
 
 private:
-    int allo_video_stream_info();
+    int alloc_video_stream_info();
 
 public:
     /**

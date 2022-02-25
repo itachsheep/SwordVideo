@@ -27,7 +27,7 @@ public class FFmpegVideoDecoderActivity: AppCompatActivity(){
         setContentView(R.layout.activity_ffmpeg_h264_decode)
 
         val dir = getExternalFilesDir(null)?.absolutePath
-        mInYuvPath = "$dir/128_128_h264.h264"
+        mInYuvPath = "$dir/a128x128.h264"
         mOutH264Path =  "$dir/ffmpeg_out_128_128.yuv"
         LogUtils.d(tag,"onCreate mInYuvPath = $mInYuvPath")
 
