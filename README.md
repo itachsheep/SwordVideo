@@ -59,15 +59,13 @@ https://github.com/yangkun19921001/AVSample  DevYk github (yangkun19921001/AVSam
 
 https://www.jianshu.com/p/14daab91b951  (Android音视频之使用MediaCodec编解码AAC)
 
+`使用mediaCodec完成 `
 `aac -> pcm`
 `pcm -> aac`
-
-`使用mediaCodec完成 pcm -> aac, aac->pcm 硬编码`
 
 > 代码：SwordVideo/Aac_h264_encode_decode`
 
 4，MediaCodec 实现 h264 硬编解码
-
 
 `使用mediaCodec，通过canvas绘制在surface上的帧画面，编码成x264`
 
@@ -88,7 +86,7 @@ https://blog.csdn.net/leixiaohua1020/article/details/25430449  (雷霄骅 --- �
 https://blog.csdn.net/leixiaohua1020/article/details/25430425  lei 雷霄骅 ---最简单的基于FFMPEG的视频编码器（YUV编码为H.264）
 
 
-ffmpeg 实现
+ffmpeg 实现  
 
 `yuv -> h264`
 `h264 -> yuv`
