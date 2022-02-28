@@ -60,3 +60,5 @@ Java_com_tao_ffmpeg_FFmpegAacNative_test(JNIEnv *env, jobject thiz) {
     char *s = "111";
     pthread_create(&id,NULL,test_thread,s);
 }
+
+

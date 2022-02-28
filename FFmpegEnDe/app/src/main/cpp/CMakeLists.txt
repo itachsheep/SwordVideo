@@ -13,13 +13,15 @@ set(audioEncode ${CMAKE_SOURCE_DIR}/audioencode)
 set(audioDecode ${CMAKE_SOURCE_DIR}/audiodecode)
 set(h264Encode ${CMAKE_SOURCE_DIR}/h264encode)
 set(h264Decode ${CMAKE_SOURCE_DIR}/h264decode)
+set(lameEncode ${CMAKE_SOURCE_DIR}/mp3encode)
+
 
 #三方
 set(THIRD_PARTY_ROOT ${CMAKE_SOURCE_DIR}/thirdparty)
 set(FFMPEG_PATH ${THIRD_PARTY_ROOT}/ffmpeg)
 set(FDK-AAC_PATH ${THIRD_PARTY_ROOT}/fdk_aac)
 set(X264_PATH ${THIRD_PARTY_ROOT}/x264)
-
+set(LAME_PATH ${THIRD_PARTY_ROOT}/lame)
 
 include_directories(
         ${jni}
@@ -28,7 +30,9 @@ include_directories(
         ${audioDecode}
         ${h264Encode}
         ${h264Decode}
+        ${lameEncode}
         ${FFMPEG_PATH}/include
+        ${LAME_PATH}/include/lame
 )
 
 file(GLOB src_cpp
@@ -37,7 +41,8 @@ file(GLOB src_cpp
         ${audioDecode}/*.cpp
         ${h264Encode}/*.cpp
         ${h264Decode}/*.cpp
-        ${jni}/jni_ffmpeg_h264_encode.cpp
+        ${lameEncode}/*.cpp
+        ${jni}/jni_lame_mp3_encode.cpp
 )
 
 project("ffmpeg")
@@ -74,6 +79,11 @@ add_library(x264 STATIC IMPORTED)
 set_target_properties(x264 PROPERTIES IMPORTED_LOCATION
         ${X264_PATH}/libs/${CMAKE_ANDROID_ARCH_ABI}/libx264.a)
 
+#liblame
+add_library(mp3-lame STATIC IMPORTED)
+set_target_properties(mp3-lame PROPERTIES IMPORTED_LOCATION
+        ${LAME_PATH}/libs/${CMAKE_ANDROID_ARCH_ABI}/libmp3lame.a)
+
 
 find_library(log-lib
         log
@@ -87,6 +97,7 @@ target_link_libraries( # Specifies the target library.
         avutil
         fdkaac
         x264
+        mp3-lame
         z #[[不加 z 会导致报未定义的错]]
         # Links the target library to the log library
         # included in the NDK.

@@ -86,7 +86,7 @@ https://blog.csdn.net/leixiaohua1020/article/details/25430449  (雷霄骅 --- �
 https://blog.csdn.net/leixiaohua1020/article/details/25430425  lei 雷霄骅 ---最简单的基于FFMPEG的视频编码器（YUV编码为H.264）
 
 
-ffmpeg 实现  
+ffmpeg 实现
 
 `yuv -> h264`
 `h264 -> yuv`
