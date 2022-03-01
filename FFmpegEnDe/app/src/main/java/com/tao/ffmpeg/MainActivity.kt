@@ -12,6 +12,7 @@ import com.tao.ffmpeg.aac.FFmpegAACDecodeActivity
 import com.tao.ffmpeg.aac.FFmpegAACEncodeActivity
 import com.tao.ffmpeg.h264.FFmpegVideoDecoderActivity
 import com.tao.ffmpeg.h264.FFmpegVideoEncoderActivity
+import com.tao.ffmpeg.mp3.LameEncoderActivity
 
 class MainActivity : AppCompatActivity() {
     private val REQUEST_OK = 10001
@@ -50,6 +51,10 @@ class MainActivity : AppCompatActivity() {
 
     fun bt_h264_decode(view: View) {
         startActivity(Intent(this,FFmpegVideoDecoderActivity::class.java))
+    }
+
+    fun bt_lame_encode_mp3(view: View) {
+        startActivity(Intent(this,LameEncoderActivity::class.java))
     }
 
 
