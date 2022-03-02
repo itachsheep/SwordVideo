@@ -14,6 +14,7 @@ set(audioDecode ${CMAKE_SOURCE_DIR}/audiodecode)
 set(h264Encode ${CMAKE_SOURCE_DIR}/h264encode)
 set(h264Decode ${CMAKE_SOURCE_DIR}/h264decode)
 set(lameEncode ${CMAKE_SOURCE_DIR}/mp3encode)
+set(mp4Encode ${CMAKE_SOURCE_DIR}/mp4encode)
 
 
 #三方
@@ -31,6 +32,7 @@ include_directories(
         ${h264Encode}
         ${h264Decode}
         ${lameEncode}
+        ${mp4Encode}
         ${FFMPEG_PATH}/include
         ${LAME_PATH}/include/lame
 )
@@ -42,7 +44,8 @@ file(GLOB src_cpp
         ${h264Encode}/*.cpp
         ${h264Decode}/*.cpp
         ${lameEncode}/*.cpp
-        ${jni}/jni_lame_mp3_encode.cpp
+        ${mp4Encode}/*.cpp
+        ${jni}/jni_ffmpeg_mp4_muxer.cpp
 )
 
 project("ffmpeg")

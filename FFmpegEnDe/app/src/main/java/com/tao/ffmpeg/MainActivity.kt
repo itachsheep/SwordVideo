@@ -13,6 +13,7 @@ import com.tao.ffmpeg.aac.FFmpegAACEncodeActivity
 import com.tao.ffmpeg.h264.FFmpegVideoDecoderActivity
 import com.tao.ffmpeg.h264.FFmpegVideoEncoderActivity
 import com.tao.ffmpeg.mp3.LameEncoderActivity
+import com.tao.ffmpeg.mp4.FFmpegMuxerActivity
 
 class MainActivity : AppCompatActivity() {
     private val REQUEST_OK = 10001
@@ -57,6 +58,9 @@ class MainActivity : AppCompatActivity() {
         startActivity(Intent(this,LameEncoderActivity::class.java))
     }
 
+    fun bt_mp4_muxer(view: View) {
+        startActivity(Intent(this,FFmpegMuxerActivity::class.java))
+    }
 
     fun checkPermission(permissions: Array<String>): Boolean {
         for (permission in permissions) {
