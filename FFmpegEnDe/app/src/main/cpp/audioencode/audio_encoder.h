@@ -48,7 +48,7 @@ typedef struct PCMPacket {
  * av_write_trailer()：写文件尾（对于某些没有文件头的封装格式，不需要此函数。比如说MPEG2TS）。
  *
  */
-
+//ffmpeg pcm 编码成-> aac
 class AudioEncoder {
     typedef void (*EncodeCallback)(uint8_t *data, int len);
 private:
