@@ -189,12 +189,16 @@ int FFmpegMp4Muxer::AAC_H264_STREAM_To_MP4(const char *videoPath,
         }
 
         //8.转换PTS/DTS
-        avPacket.pts = av_rescale_q_rnd(avPacket.pts, inStream->time_base, outStream->time_base,
-                                        (AVRounding) (AV_ROUND_NEAR_INF | AV_ROUND_PASS_MINMAX));
-        avPacket.dts = av_rescale_q_rnd(avPacket.dts, inStream->time_base, outStream->time_base,
-                                        (AVRounding) (AV_ROUND_NEAR_INF | AV_ROUND_PASS_MINMAX));
-        avPacket.duration = av_rescale_q(avPacket.duration, inStream->time_base,
-                                         outStream->time_base);
+        avPacket.pts = av_rescale_q_rnd(avPacket.pts,
+                inStream->time_base,outStream->time_base,
+                (AVRounding) (AV_ROUND_NEAR_INF | AV_ROUND_PASS_MINMAX));
+
+        avPacket.dts = av_rescale_q_rnd(avPacket.dts,
+                inStream->time_base, outStream->time_base,
+                (AVRounding) (AV_ROUND_NEAR_INF | AV_ROUND_PASS_MINMAX));
+        avPacket.duration = av_rescale_q(avPacket.duration,
+                inStream->time_base,outStream->time_base);
+
         avPacket.pos = -1;
         avPacket.stream_index = streamIndex;
 
@@ -251,4 +255,21 @@ int FFmpegMp4Muxer::NewStream(AVFormatContext *avFormatContext, int &inputIndex,
         }
     }
     return outputStreamIndex;
+}
+
+void FFmpegMp4Muxer::WritePTS(AVPacket *avPacket, AVStream *inputStream) {
+    if (avPacket->pts == AV_NOPTS_VALUE) {
+        //Write PTS
+        AVRational time_base = inputStream->time_base;
+        //计算两帧的时间
+        int64_t calc_duration =
+                (double) AV_TIME_BASE / av_q2d(inputStream->r_frame_rate);
+        //Parameters
+        avPacket->pts = (double) (frameIndex * calc_duration) /
+                        (double) (av_q2d(time_base) * AV_TIME_BASE);
+        avPacket->dts = avPacket->pts;
+        avPacket->duration = (double) calc_duration /
+                             (double) (av_q2d(time_base) * AV_TIME_BASE);
+        frameIndex++;
+    }
 }
