@@ -23,7 +23,9 @@ T RandT(T _min, T _max) {
 int FillAudioIoBuffer(void *opaque, unsigned char *o_pbBuf, int i_iMaxSize) {
     int iRet = -1;
     if (!feof(g_fileAAC)) {
-        iRet = fread(o_pbBuf, 1, RandT(i_iMaxSize / 2, i_iMaxSize),
+        int count = RandT(i_iMaxSize / 2, i_iMaxSize);
+        LOGD("FillAudioIoBuffer count = %d, i_iMaxSize = %d ", count,i_iMaxSize);
+        iRet = fread(o_pbBuf, 1, count,
                      g_fileAAC);
     } else {
     }
@@ -33,7 +35,9 @@ int FillAudioIoBuffer(void *opaque, unsigned char *o_pbBuf, int i_iMaxSize) {
 int FillVideoIoBuffer(void *opaque, unsigned char *o_pbBuf, int i_iMaxSize) {
     int iRet = -1;
     if (!feof(g_fileH264)) {
-        iRet = fread(o_pbBuf, 1, RandT(i_iMaxSize / 2, i_iMaxSize),
+        int count = RandT(i_iMaxSize / 2, i_iMaxSize);
+        LOGD("FillVideoIoBuffer count = %d, i_iMaxSize = %d ", count,i_iMaxSize);
+        iRet = fread(o_pbBuf, 1, count,
                      g_fileH264);
     } else {
     }
@@ -149,6 +153,7 @@ int FFmpegMp4Muxer::AAC_H264_STREAM_To_MP4(const char *videoPath,
                           videoFormatCtx->streams[videoIndex]->time_base,
                           cur_pts_a,
                           audioFormatCtx->streams[audioIndex]->time_base) <= 0) {
+            LOGD("av_compare_ts -- 1");
             streamIndex = videoStreamIndex;
             while (!videoExit) {
                 int ret = av_read_frame(videoFormatCtx, &avPacket);
@@ -166,9 +171,9 @@ int FFmpegMp4Muxer::AAC_H264_STREAM_To_MP4(const char *videoPath,
                 }
             }
         } else {
+            LOGD("av_compare_ts ---> 2");
             streamIndex = audioStreamIndex;
             while (!audioExit) {
-
                 int ret = av_read_frame(audioFormatCtx, &avPacket);
                 if (ret < 0) {
                     audioExit = true;
@@ -271,5 +276,7 @@ void FFmpegMp4Muxer::WritePTS(AVPacket *avPacket, AVStream *inputStream) {
         avPacket->duration = (double) calc_duration /
                              (double) (av_q2d(time_base) * AV_TIME_BASE);
         frameIndex++;
+        LOGD("WritePTS frameIndex = %d, avPacket dur =  %ld",
+             frameIndex,avPacket->duration );
     }
 }
