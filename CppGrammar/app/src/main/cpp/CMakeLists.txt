@@ -8,15 +8,18 @@ cmake_minimum_required(VERSION 3.4.1)
 set(template ${CMAKE_SOURCE_DIR}/template)
 set(jni ${CMAKE_SOURCE_DIR}/jni)
 set(utils ${CMAKE_SOURCE_DIR}/utils)
+set(mAndroid ${CMAKE_SOURCE_DIR}/android)
 
 include_directories(
         ${template}
         ${utils}
+        ${mAndroid}
 )
 
 file(GLOB src_cpp
-       ${template}/*.cpp
-       ${jni}/*.cpp
+        ${template}/*.cpp
+        ${jni}/*.cpp
+        ${mAndroid}/*.cpp
 )
 
 # Creates and names a library, sets it as either STATIC
