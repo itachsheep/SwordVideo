@@ -17,8 +17,8 @@ public object LogHelper {
         Log.i(mTag + tag,info)
     }
 
-    fun e(tag: String, info: String) {
-        Log.e(mTag + tag,info)
+    fun e(tag: String, info: String?) {
+        Log.e(mTag + tag,info ?:"")
     }
 
     fun w(tag: String, info: String) {

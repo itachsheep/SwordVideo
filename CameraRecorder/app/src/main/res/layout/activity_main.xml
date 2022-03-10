@@ -10,45 +10,10 @@
 
     <Button
         android:onClick="bt_aac_encode"
-        android:text="aac 编码"
+        android:text="跳转"
         android:textAllCaps="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
-    <Button
-        android:onClick="bt_aac_decode"
-        android:text="aac 解码"
-        android:textAllCaps="false"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <Button
-        android:onClick="bt_h264_encode"
-        android:text="h264 编码"
-        android:textAllCaps="false"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-
-    <Button
-        android:onClick="bt_h264_decode"
-        android:text="h264 解码"
-        android:textAllCaps="false"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <Button
-        android:onClick="bt_lame_encode_mp3"
-        android:text="lame mp3编码"
-        android:textAllCaps="false"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <Button
-        android:onClick="bt_mp4_muxer"
-        android:text="mp4 编码 合成"
-        android:textAllCaps="false"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
 
 </LinearLayout>
