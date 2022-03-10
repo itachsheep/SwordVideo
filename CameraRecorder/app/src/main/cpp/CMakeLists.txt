@@ -8,6 +8,7 @@ cmake_minimum_required(VERSION 3.10.2)
 # Declares and names the project.
 
 set(jni ${CMAKE_SOURCE_DIR}/jni)
+set(camera ${CMAKE_SOURCE_DIR}/camera)
 set(utils ${CMAKE_SOURCE_DIR}/utils)
 
 
@@ -21,12 +22,14 @@ set(LAME_PATH ${THIRD_PARTY_ROOT}/lame)
 include_directories(
         ${jni}
         ${utils}
+        ${camera}
         ${FFMPEG_PATH}/include
         ${LAME_PATH}/include/lame
 )
 
 file(GLOB src_cpp
         ${jni}/*.cpp
+        ${camera}/*.cpp
 )
 
 project("ffmpeg")

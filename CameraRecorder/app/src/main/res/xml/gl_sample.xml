@@ -7,8 +7,8 @@
             android:title="绘制图片">
         <intent
                 android:action="android.intent.action.MAIN"
-                android:targetClass="com.devyk.av.camera_recorder.sample.DrawBitmapActivity"
-                android:targetPackage="com.devyk.avsample"/>
+                android:targetClass="com.tao.camera.sample.DrawBitmapActivity"
+                android:targetPackage="com.tao.camera"/>
     </PreferenceScreen>
 
 
@@ -17,8 +17,8 @@
             android:title="共享图片纹理 ID">
         <intent
                 android:action="android.intent.action.MAIN"
-                android:targetClass="com.devyk.av.camera_recorder.sample.ShareTextureIdActivity"
-                android:targetPackage="com.devyk.avsample"/>
+                android:targetClass="com.tao.camera.sample.ShareTextureIdActivity"
+                android:targetPackage="com.tao.camera"/>
     </PreferenceScreen>
 
 
@@ -27,8 +27,8 @@
             android:title="相机预览">
         <intent
                 android:action="android.intent.action.MAIN"
-                android:targetClass="com.devyk.av.camera_recorder.sample.CameraPreviewActivity"
-                android:targetPackage="com.devyk.avsample"/>
+                android:targetClass="com.tao.camera.sample.CameraPreviewActivity"
+                android:targetPackage="com.tao.camera"/>
     </PreferenceScreen>
 
     <PreferenceScreen
@@ -36,8 +36,8 @@
             android:title="视频编码录制">
         <intent
                 android:action="android.intent.action.MAIN"
-                android:targetClass="com.devyk.av.camera_recorder.sample.VideoRecordingActivity"
-                android:targetPackage="com.devyk.avsample"/>
+                android:targetClass="com.tao.camera.sample.VideoRecordingActivity"
+                android:targetPackage="com.tao.camera"/>
     </PreferenceScreen>
 
     <PreferenceScreen
@@ -45,8 +45,8 @@
             android:title="图片生成视频">
         <intent
                 android:action="android.intent.action.MAIN"
-                android:targetClass="com.devyk.av.camera_recorder.sample.BitmapGenMp4Activity"
-                android:targetPackage="com.devyk.avsample"/>
+                android:targetClass="com.tao.camera.sample.BitmapGenMp4Activity"
+                android:targetPackage="com.tao.camera"/>
     </PreferenceScreen>
 
 </PreferenceScreen>

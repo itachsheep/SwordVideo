@@ -10,9 +10,9 @@ package com.tao.camera.muxer
  * </pre>
  */
 object NativeMuxer {
-    init {
-        System.loadLibrary("muxer_")
-    }
+//    init {
+//        System.loadLibrary("muxer_")
+//    }
 
     external fun init(outputPath: String)
     external fun enqueue(byteArray: ByteArray, isAudio: Int, pts: Long)

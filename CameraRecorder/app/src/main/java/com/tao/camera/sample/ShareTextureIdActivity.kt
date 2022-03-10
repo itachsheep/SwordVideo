@@ -26,12 +26,13 @@ public class ShareTextureIdActivity : BaseActivity<Int>() {
     }
 
     override fun initData() {
-        bitmap_surface = findViewById(R.id.bitmap_surface)
+
         content = findViewById(R.id.content)
 
     }
 
     override fun init() {
+        bitmap_surface = findViewById(R.id.bitmap_surface)
         bitmap_surface.getRenderer()?.setOnRendererListener(object : BitmapRenderer.OnRendererListener {
             override fun onCreate(textureId: Int) {
                 runOnUiThread {
