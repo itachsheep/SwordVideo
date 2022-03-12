@@ -12,7 +12,7 @@ import android.util.Log
  * </pre>
  */
 public object LogHelper {
-    val mTag = "FFmpegUse."
+    val mTag = "CameraUse."
     fun i(tag: String, info: String) {
         Log.i(mTag + tag,info)
     }

@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         Manifest.permission.WRITE_EXTERNAL_STORAGE,
         Manifest.permission.READ_EXTERNAL_STORAGE,
         Manifest.permission.RECORD_AUDIO,
+        Manifest.permission.CAMERA
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +29,8 @@ class MainActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(
                 this, request_permission,REQUEST_OK
             )
+        } else {
+            startActivity(Intent(this, GLSampleActivity::class.java))
         }
         // Example of a call to a native method
 //        findViewById<TextView>(R.id.sample_text).text = stringFromJNI()

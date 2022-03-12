@@ -5,9 +5,9 @@
                 android:layout_height="match_parent">
 
     <com.tao.camera.widget.RecordView
-            android:layout_width="match_parent"
-            android:id="@+id/recording"
-            android:layout_height="match_parent"/>
+        android:id="@+id/recording"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 
     <Button

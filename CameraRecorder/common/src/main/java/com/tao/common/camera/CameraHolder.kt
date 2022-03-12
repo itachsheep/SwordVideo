@@ -4,6 +4,7 @@ import android.graphics.Rect
 import android.graphics.SurfaceTexture
 import android.hardware.Camera
 import android.util.Log
+import com.tao.common.LogHelper
 import com.tao.common.config.CameraConfiguration
 import java.io.IOException
 import java.util.*
@@ -30,6 +31,7 @@ public class CameraHolder {
         private set
     var state: State? = null
         private set
+    //camera采集数据
     private var mTexture: SurfaceTexture? = null
     private var isTouchMode = false
     private var isOpenBackFirst = true
@@ -68,10 +70,10 @@ public class CameraHolder {
             releaseCamera()
         }
         try {
-            Log.d(TAG, "open camera " + cameraData.cameraID)
+            LogHelper.d(TAG, "open camera " + cameraData.cameraID)
             mCameraDevice = Camera.open(cameraData.cameraID)
         } catch (e: RuntimeException) {
-            Log.e(TAG, "fail to connect Camera")
+            LogHelper.e(TAG, "fail to connect Camera")
             throw CameraHardwareException(e)
         }
 
@@ -79,7 +81,8 @@ public class CameraHolder {
             throw CameraNotSupportException()
         }
         try {
-            CameraUtils.initCameraParams(mCameraDevice, cameraData, isTouchMode, mConfiguration)
+            CameraUtils.initCameraParams(mCameraDevice, cameraData,
+                isTouchMode, mConfiguration)
         } catch (e: Exception) {
             e.printStackTrace()
             mCameraDevice!!.release()
@@ -204,7 +207,7 @@ public class CameraHolder {
             return
         }
         if (x < -1000 || x > 1000 || y < -1000 || y > 1000) {
-            Log.w(TAG, "setFocusPoint: values are not ideal x= $x y= $y")
+            LogHelper.w(TAG, "setFocusPoint: values are not ideal x= $x y= $y")
             return
         }
 
@@ -223,7 +226,7 @@ public class CameraHolder {
                 // fast since previous attempt
             }
         } else {
-            Log.w(TAG, "Not support Touch focus mode")
+            LogHelper.w(TAG, "Not support Touch focus mode")
         }
     }
 

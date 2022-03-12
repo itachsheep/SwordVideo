@@ -47,7 +47,10 @@ public open class CameraView : GLSurfaceView, SurfaceTexture.OnFrameAvailableLis
     constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         renderer = CameraRenderer(context!!)
-        configure(RendererConfiguration.Builder().setRenderer(renderer).setRendererMode(RENDERERMODE_CONTINUOUSLY).build())
+        configure(RendererConfiguration.Builder()
+            .setRenderer(renderer)
+            .setRendererMode(RENDERERMODE_CONTINUOUSLY)
+            .build())
         //第一次需要初始化预览角度
         previewAngle(context)
         addRendererListener()
@@ -62,9 +65,14 @@ public open class CameraView : GLSurfaceView, SurfaceTexture.OnFrameAvailableLis
                     CameraConfiguration.Builder().setFacing(cameraId).build()
                 CameraHolder.instance().setConfiguration(cameraConfiguration)
                 CameraHolder.instance().openCamera()
-                CameraHolder.instance().setSurfaceTexture(cameraTextureId, this@CameraView);
+                //todo： 很重要
+                // 将 CameraRender 生成的纹理 给到CameraHolder，
+                // CameraHolder 设置预览的纹理，
+                // 完成将纹理数据给到 GLSurfaceView 的 CameraRender中
+                CameraHolder.instance().setSurfaceTexture(cameraTextureId,
+                    this@CameraView);
                 CameraHolder.instance().startPreview();
-                LogHelper.e(TAG,"TextureId:${mTextureId}")
+                LogHelper.e(TAG,"onCreate TextureId:${mTextureId}")
                 mCameraOpenListener?.onCameraOpen()
             }
 
@@ -87,7 +95,8 @@ public open class CameraView : GLSurfaceView, SurfaceTexture.OnFrameAvailableLis
 
     fun previewAngle(context: Context) {
         val rotation =
-            (context.applicationContext.getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay.rotation
+            (context.applicationContext.getSystemService(Context.WINDOW_SERVICE) as WindowManager)
+                .defaultDisplay.rotation
         LogHelper.d(TAG, "旋转角度：" + rotation)
         renderer.resetMatrix()
         when (rotation) {
