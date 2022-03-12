@@ -23,7 +23,9 @@ public class BitmapSurfaceView : GLSurfaceView {
     constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         mBitmapRenderer = BitmapRenderer(context!!)
-        configure(RendererConfiguration.Builder().setRenderer(mBitmapRenderer!!).setRendererMode(RENDERERMODE_WHEN_DIRTY).build())
+        configure(RendererConfiguration.Builder()
+            .setRenderer(mBitmapRenderer!!)
+            .setRendererMode(RENDERERMODE_WHEN_DIRTY).build())
     }
 
     public override fun getRenderer(): BitmapRenderer? = mBitmapRenderer

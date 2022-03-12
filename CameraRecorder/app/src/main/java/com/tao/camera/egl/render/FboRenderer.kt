@@ -22,7 +22,9 @@ import java.nio.FloatBuffer
  *
  * FBO 概念：
  * 为什么要用FBO?
- * - 当我们需要对纹理进行多次渲染采样时，而这些渲染采样是不需要展示给用户看的，所以我们就可以用一个单独的缓冲对象（离屏渲染）来存储我们的这几次渲染采样的结果，等处理完后才显示到窗口上。
+ * - 当我们需要对纹理进行多次渲染采样时，
+ * 而这些渲染采样是不需要展示给用户看的，所以我们就可以用一个单独的缓冲对象
+ * （离屏渲染）来存储我们的这几次渲染采样的结果，等处理完后才显示到窗口上。
  *
  * 优势
  * - 提高渲染效率，避免闪屏，可以很方便的实现纹理共享等。
@@ -86,8 +88,12 @@ public class FboRenderer(context: Context) : IRenderer {
     /**
      * 使用 VBO
      * 概念:
-     * - 不使用VBO时，我们每次绘制（ glDrawArrays ）图形时都是从本地内存处获取顶点数据然后传输给OpenGL来绘制，这样就会频繁的操作CPU->GPU增大开销，从而降低效率。
-     * - 使用VBO，我们就能把顶点数据缓存到GPU开辟的一段内存中，然后使用时不必再从本地获取，而是直接从显存中获取，这样就能提升绘制的效率。
+     * - 不使用VBO时，我们每次绘制（ glDrawArrays ）
+     * 图形时都是从本地内存处获取顶点数据然后传输给OpenGL来绘制，
+     * 这样就会频繁的操作CPU->GPU增大开销，从而降低效率。
+     * - 使用VBO，我们就能把顶点数据缓存到GPU开辟的一段内存中，
+     * 然后使用时不必再从本地获取，而是直接从显存中获取，
+     * 这样就能提升绘制的效率。
      *
      *
      */
@@ -196,6 +202,7 @@ public class FboRenderer(context: Context) : IRenderer {
         //1. 使用顶点和片元创建出来的执行程序
         GLES20.glUseProgram(program)
 
+        // ------------------------------ 分割线 1--------------------------
         //2. 绑定纹理
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, textureId)
 
@@ -210,9 +217,13 @@ public class FboRenderer(context: Context) : IRenderer {
         GLES20.glEnableVertexAttribArray(fPosition)
         GLES20.glVertexAttribPointer(fPosition, 2, GLES20.GL_FLOAT, false, 8, mVertexData.size * 4)
 
-        //6. 开始绘制
+        //6. 开始绘制：
+        //todo: 重要
+        // 1，开始绘制 textureId 纹理绑定的图片，如BitmapSurfaceView传递的胡歌图片
         GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, 4)
 
+
+        //------------------------- 分割线 2 ---------------------------------
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, mBitmapTextureId)
 
         GLES20.glEnableVertexAttribArray(vPosition)
@@ -223,6 +234,8 @@ public class FboRenderer(context: Context) : IRenderer {
         GLES20.glVertexAttribPointer(fPosition, 2, GLES20.GL_FLOAT, false, 8,
             mVertexData.size * 4)
 
+        //todo：
+        // 2，开始绘制"零基础学习音视频" 底图，使用fbo合成
         GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, 4);
 
         //7. 解绑
