@@ -49,4 +49,13 @@
                 android:targetPackage="com.tao.camera"/>
     </PreferenceScreen>
 
+    <PreferenceScreen
+        android:key="camera_gl_demo"
+        android:title="我的相机预览实现">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetClass="com.tao.camera.test.PreviewTestActivity"
+            android:targetPackage="com.tao.camera"/>
+    </PreferenceScreen>
+
 </PreferenceScreen>
