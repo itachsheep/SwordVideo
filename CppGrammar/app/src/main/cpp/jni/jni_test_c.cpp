@@ -17,6 +17,7 @@ extern "C"
 JNIEXPORT void JNICALL
 Java_com_tao_myndktest_NativeHelper_testC(JNIEnv *env, jobject thiz) {
     simpleLog();
+    LOGD("call c function from cpp ----->");
     char* res = printHello();
 
     LOGD("res = %s" , res);

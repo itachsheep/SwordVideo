@@ -11,5 +11,8 @@ package com.tao.myndktest;
 public class NativeHelper {
     public native void testTemplate();
 
+    /**
+     *  c 和 c++ 互相调用
+     */
     public native void testC();
 }

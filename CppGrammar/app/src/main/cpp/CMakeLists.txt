@@ -9,6 +9,7 @@ set(template ${CMAKE_SOURCE_DIR}/template)
 set(jni ${CMAKE_SOURCE_DIR}/jni)
 set(utils ${CMAKE_SOURCE_DIR}/utils)
 set(simplec ${CMAKE_SOURCE_DIR}/simplec)
+set(simplecpp ${CMAKE_SOURCE_DIR}/simplecpp)
 set(mAndroid ${CMAKE_SOURCE_DIR}/android)
 
 include_directories(
@@ -16,6 +17,7 @@ include_directories(
         ${utils}
         ${mAndroid}
         ${simplec}
+        ${simplecpp}
 )
 
 file(GLOB src_cpp
@@ -23,9 +25,10 @@ file(GLOB src_cpp
         ${jni}/*.cpp
         ${simplec}/*.c
         ${mAndroid}/*.cpp
-        ${jni}/jni_test_c.cpp
-        ${simplec}/hello.c
+        ${simplecpp}/*.cpp
 
+        ${jni}/jni_test_c.cpp
+        ${simplecpp}/hello2.cpp
 )
 
 # Creates and names a library, sets it as either STATIC

@@ -3,11 +3,15 @@
 //
 
 #include <stdio.h>
-//#include "my_log.h"
+#include "simple_log.h"
+#include "hello2.h"
 //
 char* printHello() {
     char *s = "hello world";
     printf("hello world");
-    //LOGD("printHello");
+    LOGD("printHello ----->");
+
+    LOGD("call cpp function from c ----->");
+    printHello_cpp();
     return s;
 }
