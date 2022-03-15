@@ -10,4 +10,6 @@ package com.tao.myndktest;
 
 public class NativeHelper {
     public native void testTemplate();
+
+    public native void testC();
 }

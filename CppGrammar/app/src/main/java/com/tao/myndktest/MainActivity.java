@@ -49,6 +49,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }));
 
+        dataList.add(new ItemBean("调用c",new Action(){
+            @Override
+            public void onAction() {
+                new NativeHelper().testC();
+            }
+        }));
+
 
 
 
