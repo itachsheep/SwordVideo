@@ -42,6 +42,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initData() {
+
+        dataList.add(new ItemBean("pthread测试",new Action(){
+            @Override
+            public void onAction() {
+                LogUtils.d(TAG,"go to  ----> test_pthread");
+                new NativeHelper().test_pthread();
+            }
+        }));
+
+
         dataList.add(new ItemBean("template模板", new Action() {
             @Override
             public void onAction() {

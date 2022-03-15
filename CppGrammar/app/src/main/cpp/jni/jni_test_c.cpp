@@ -7,14 +7,14 @@
 
 extern "C" {
 #include "hello.h"
+#include "pthread_test.h"
 }
 void test() {
 
 }
 
 
-extern "C"
-JNIEXPORT void JNICALL
+extern "C" JNIEXPORT void JNICALL
 Java_com_tao_myndktest_NativeHelper_testC(JNIEnv *env, jobject thiz) {
     simpleLog();
     LOGD("call c function from cpp ----->");
@@ -22,4 +22,11 @@ Java_com_tao_myndktest_NativeHelper_testC(JNIEnv *env, jobject thiz) {
 
     LOGD("res = %s" , res);
 
+}
+
+
+extern "C" JNIEXPORT void JNICALL
+Java_com_tao_myndktest_NativeHelper_test_1pthread(JNIEnv *env, jobject thiz) {
+    simpleLog();
+    create_threads();
 }

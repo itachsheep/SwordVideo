@@ -29,6 +29,7 @@ file(GLOB src_cpp
 
         ${jni}/jni_test_c.cpp
         ${simplecpp}/hello2.cpp
+        ${simplec}/pthread_test.c
 )
 
 # Creates and names a library, sets it as either STATIC

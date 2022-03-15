@@ -15,4 +15,6 @@ public class NativeHelper {
      *  c 和 c++ 互相调用
      */
     public native void testC();
+
+    public native void test_pthread();
 }
