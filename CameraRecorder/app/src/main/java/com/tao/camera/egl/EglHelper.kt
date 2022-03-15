@@ -2,6 +2,7 @@ package com.tao.camera.egl
 
 import android.opengl.EGL14
 import android.view.Surface
+import com.tao.common.LogHelper
 import javax.microedition.khronos.egl.*
 
 /**
@@ -16,7 +17,7 @@ import javax.microedition.khronos.egl.*
 
 
 class EglHelper {
-
+    val tag = "EglHelper"
     private var mEgl: EGL10? = null
     private var mEglDisplay: EGLDisplay? = null
     private var mEglContext: EGLContext? = null
@@ -28,6 +29,7 @@ class EglHelper {
      * @param eglContext
      */
     fun initEgl(surface: Surface?, eglContext: EGLContext?) {
+        LogHelper.d(tag,"initEgl")
 
         //1、得到 EGL 实例
         mEgl = EGLContext.getEGL() as EGL10
@@ -44,6 +46,7 @@ class EglHelper {
             throw RuntimeException("eglInitialize failed")
         }
 
+        LogHelper.d(tag,"initEgl  2")
         //4、设置显示设备的属性
         val attrbutes = intArrayOf(
             EGL10.EGL_RED_SIZE,
@@ -79,6 +82,7 @@ class EglHelper {
             )
         ) { "eglChooseConfig#2 failed" }
 
+        LogHelper.d(tag,"initEgl  3")
         //6、创建爱你 EGL 上下文环境
 
         val attrib_list = intArrayOf(EGL14.EGL_CONTEXT_CLIENT_VERSION, 2, EGL10.EGL_NONE)
@@ -92,10 +96,12 @@ class EglHelper {
         //7、创建渲染的 Surface
         mEglSurface = mEgl!!.eglCreateWindowSurface(mEglDisplay, configs[0], surface, null)
 
+        LogHelper.d(tag,"initEgl  3")
         //8、绑定 EglContext 和 Surface 到显示设备中
         if (!mEgl!!.eglMakeCurrent(mEglDisplay, mEglSurface, mEglSurface, mEglContext)) {
             throw RuntimeException("eglMakeCurrent fail")
         }
+        LogHelper.d(tag,"initEgl  4")
     }
 
     fun swapBuffers() {

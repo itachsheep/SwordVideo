@@ -216,10 +216,12 @@ class MyGLSurfaceView: SurfaceView, SurfaceHolder.Callback, SurfaceTexture.OnFra
             //实例化 EGL 环境搭建的帮组类
             mEGLHelper = EglHelper()
             mEGLHelper.initEgl(mSurface, mEGLHelper.getEglContext())
+            LogHelper.d(TAG,"run ---- 1")
             while (true) {
+                LogHelper.d(TAG,"run ---- 2")
                 try {
                     sleep(500)
-                    continue
+                   // continue
                 } catch (error: InterruptedException) {
                     LogHelper.e(TAG, error.message)
                 }
