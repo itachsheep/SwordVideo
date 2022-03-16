@@ -28,5 +28,9 @@ Java_com_tao_myndktest_NativeHelper_testC(JNIEnv *env, jobject thiz) {
 extern "C" JNIEXPORT void JNICALL
 Java_com_tao_myndktest_NativeHelper_test_1pthread(JNIEnv *env, jobject thiz) {
     simpleLog();
-    create_threads();
+    //create_threads();
+
+    //syn_thread();
+
+    communicate_thread();
 }
