@@ -13,6 +13,7 @@
 
 /**
  *  POSIX 线程创建
+ *  https://blog.csdn.net/Kennethdroid/article/details/86666637
  */
 
 #define NUM_THREADS 5
@@ -110,6 +111,7 @@ void syn_thread(){
 
 /**
 * POSIX 线程间通信
+ * https://blog.csdn.net/Kennethdroid/article/details/86666637
 */
 
 // 共享数据
