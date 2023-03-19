@@ -1,0 +1,137 @@
+ext {
+    compileSdkVersion = 31
+    minSdkVersion = 23
+    targetSdkVersion = 31
+
+    versionCode = 00001
+    versionName = "1.0.0"
+
+    applicationId = "com.tw.speedbrowser"
+    versionCodeName = "versionCode"
+
+    // Library Version
+    lifecycle_version = "2.0.0"
+    version = [
+            rxlifecycle2SdkVersion: "2.2.2"
+    ]
+
+    dependencies = [
+            junit                     : "junit:junit:4.12",
+            test_runner               : 'androidx.test.ext:junit:1.1.1',
+            espresso_core             : 'androidx.test.espresso:espresso-core:3.1.0',
+
+            android_skin_loader       : files('libs/android-skin-loader-lib.jar'),
+            support_v4                : 'androidx.legacy:legacy-support-v4:1.0.0',
+            support_design            : 'com.google.android.material:material:1.0.0',
+            support_appcompat_v7      : 'androidx.recyclerview:recyclerview:1.0.0',
+            support_cardview_v7       : 'androidx.cardview:cardview:1.0.0',
+            support_recyclerview_v7   : 'androidx.recyclerview:recyclerview:1.0.0',
+            support_constraint_layout : 'androidx.constraintlayout:constraintlayout:1.1.3',
+
+            gson                      : "com.google.code.gson:gson:2.8.5",
+
+            glide                     : "com.github.bumptech.glide:glide:4.12.0",
+            glide_compiler            : "com.github.bumptech.glide:compiler:4.12.0",
+            android_svg               : "com.caverock:androidsvg-aar:1.4",
+
+            okhttp                    : "com.squareup.okhttp3:okhttp:4.10.0",
+            okhttp_logging_interceptor: "com.squareup.okhttp3:logging-interceptor:4.7.2",
+            persistent_jar            : "com.github.franmontiel:PersistentCookieJar:v1.0.1",
+
+            rxjava2                   : "io.reactivex.rxjava2:rxjava:2.2.16",
+            rxandroid2                : "io.reactivex.rxjava2:rxandroid:2.1.1",
+            rxkotlin2                 : "io.reactivex.rxjava2:rxkotlin:2.4.0",
+
+            rxlifecycle_components    : "com.trello.rxlifecycle2:rxlifecycle-components:2.2.2",
+            rxlifecycle_4_android     : "com.trello.rxlifecycle2:rxlifecycle-android-lifecycle:2.2.2",
+
+            rxbinding_design          : "com.jakewharton.rxbinding2:rxbinding-kotlin:2.1.1",
+
+            rx_binding_java           : "com.jakewharton.rxbinding2:rxbinding:2.0.0",
+
+            retrofit                  : "com.squareup.retrofit2:retrofit:2.9.0",
+            retrofit_adapter_rxjava   : "com.squareup.retrofit2:adapter-rxjava2:2.3.0",
+            retrofit_converter_gson   : "com.squareup.retrofit2:converter-gson:2.5.0",
+
+            live_data                 : 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1',
+
+            rx_lifycycle              : "com.trello:rxlifecycle-components:1.0",
+
+            rx_permission             : "com.github.tbruyelle:rxpermissions:0.10.2",
+            barlibrary                : "com.gyf.barlibrary:barlibrary:2.3.0",
+            rxlifecycle               : "com.trello:rxlifecycle-components:1.0",
+            cus_logger                : "com.orhanobut:logger:2.2.0",
+
+            aliclod_rest              : "com.aliyun.ams:alicloud-android-rest:1.6.0-open",
+
+            oss                       : "com.aliyun.dpa:oss-android-sdk:+",
+            rx_bus2                   : "com.github.MFlisar:RxBus2:0.2",
+
+            anko_common               : "org.jetbrains.anko:anko-commons:0.10.8",
+            anko_common_support       : "org.jetbrains.anko:anko-support-v4-commons:0.10.8",
+            toasty                    : "com.github.getActivity:ToastUtils:9.5",
+            xtoasty                   : "com.hjq:xtoast:5.5",
+
+            kotlin_ext                : "com.cysion:targetfun:1.1.0",
+
+            smart_refresh_layout      : "com.scwang.smartrefresh:SmartRefreshLayout:1.1.3",
+
+            nice_dialog               : "com.github.SheHuan:NiceDialog:1.1.9",
+
+            jg_push_analytics         : "cn.jiguang.sdk:janalytics:2.0.0", // 此处以JAnalytics 2.0.0 版本为例。
+            jg_push_core              : "cn.jiguang.sdk:jcore:1.2.6",  // 此处以JCore 1.2.6 版本为例。
+
+            drift_consumer            : "com.github.driftt:drift-sdk-android:v1.2.7",
+            photo_view                : "com.bm.photoview:library:1.4.1",
+
+            crop_view                 : "com.lyft:scissors:1.1.1",
+
+//            room_runtime              : 'androidx.room:room-runtime:2.2.5',
+//            room_annotation_processor : 'androidx.room:room-compiler:2.2.5',
+            room_runtime              : 'androidx.room:room-runtime:2.4.0-alpha03',
+            room_annotation_processor : 'androidx.room:room-compiler:2.4.0-alpha03',
+            room_rxjava               : 'androidx.room:room-rxjava2:2.2.5',
+
+            firebase_core             : "com.google.firebase:firebase-core:21.1.1",
+            firebase_message          : "com.google.firebase:firebase-messaging:23.1.0",
+
+            play_analytics            : "com.google.firebase:firebase-analytics:21.2.0",
+
+            anko_sdk                  : "org.jetbrains.anko:anko-sdk19:+",
+
+            geetest_sdk               : "com.geetest.sensebot:sensebot:4.3.5.4",
+
+            event_bus                 : "org.greenrobot:eventbus:3.3.1",
+            event_annotation          : "org.greenrobot:eventbus-annotation-processor:3.3.1",
+            event_sqlcipher           : "net.zetetic:android-database-sqlcipher:4.5.0",
+
+            aliyun_httpdns            : "com.aliyun.ams:alicloud-android-httpdns:2.2.2",
+
+            aliyun_oss_log            : "com.aliyun.openservices:aliyun-log-android-sdk:2.6.2",
+
+//            zendesk_sdk               : "com.zopim.android:sdk:1.4.8",
+//            zendesk_message           : "com.zendesk:messaging:5.2.5",
+            zendesk_support           : "com.zendesk:support:5.1.0",
+            zendesk_answerbot         : "com.zendesk:answerbot:3.0.9",
+
+            fb_analytics              : "com.facebook.android:facebook-android-sdk:11.1.0",
+
+            // https://developers.sumsub.com/msdk/android/changelog.html#version-1-20-3
+            idensic_mobile_sdk        : "com.sumsub.sns:idensic-mobile-sdk:1.20.6",
+            idensic_prooface          : "com.sumsub.sns:idensic-mobile-sdk-prooface:1.20.6",
+            lottie                    : "com.airbnb.android:lottie:4.2.1",
+            fingerprint               : 'com.fingerprint.android:pro:2.1.1',
+            crowdin                   : "com.github.crowdin.mobile-sdk-android:sdk:1.5.7",
+            identifier                : "com.huawei.hms:ads-identifier:3.4.56.300",
+            //oaid 接入
+//            implementation 'com.huawei.hms:ads-identifier:3.4.56.300'
+
+            test_animi                : "com.wuyr:rippleanimation:1.0.0"
+
+
+    ]
+
+    classpaths = [
+
+    ]
+}

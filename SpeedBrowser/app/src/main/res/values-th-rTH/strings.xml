@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">เบราว์เซอร์ขนาดเล็ก</string>
+    <string name="search">ค้นหา</string>
+    <string name="cancel">ยกเลิก</string>
+    <string name="favor">รายการโปรด</string>
+    <string name="favor_success">ความสำเร็จที่ชื่นชอบ</string>
+    <string name="recent_search">การค้นหาล่าสุด</string>
+    <string name="baidu">ไป่ตู้</string>
+    <string name="sougou">โซโก</string>
+    <string name="google">กูเกิล</string>
+    <string name="bing">Bing</string>
+    <string name="enter_internet_url">ป้อนคำหลักหรือ URL</string>
+    <string name="quickVisit">เยี่ยมชมด่วน</string>
+    <string name="recentVisit">เยี่ยมชมล่าสุด</string>
+    <string name="copy_success">คัดลอกสำเร็จ</string>
+    <string name="switch_theme">เปลี่ยนโหมดกลางคืน</string>
+    <string name="about_me">เกี่ยวกับฉัน</string>
+    <string name="about_me_desc">ฉันเป็นนักเรียนที่โรงเรียน ฉันหวังว่าการค้นหาจะง่ายและรวดเร็วยิ่งขึ้น และฉันยังหวังว่ามันจะอำนวยความสะดวกให้กับคุณ การสร้างไม่ใช่เรื่องง่าย โปรดสนับสนุน</string>
+    <string name="reward_me">ให้รางวัลแก่ผู้เขียน</string>
+    <string name="paypal_ali_desc">อาลีเพย์</string>
+    <string name="paypal_wechat_desc">วีแชท</string>
+    <string name="save_to_gallery">บันทึกไปที่แกลเลอรี!</string>
+</resources>

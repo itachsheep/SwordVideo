@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">light browser</string>
+    <string name="search">Search</string>
+    <string name="cancel">Cancel</string>
+    <string name="favor">favorite</string>
+    <string name="favor_success">favorite success</string>
+    <string name="recent_search">Recent search</string>
+    <string name="baidu">Baidu</string>
+    <string name="sougou">Sogou</string>
+    <string name="google">Google</string>
+    <string name="bing">Bing</string>
+    <string name="enter_internet_url">Enter keywords or URL</string>
+    <string name="quickVisit">Quick Visit</string>
+    <string name="recentVisit">Recent Visit</string>
+    <string name="copy_success">Copy successfully</string>
+    <string name="switch_theme">Switch the night mode</string>
+    <string name="about_me">About me</string>
+    <string name="about_me_desc">I am a student at school, I hope that the search becomes easier and faster, and I also hope that it can bring convenience to you. It is not easy to create, please support</string>
+    <string name="reward_me">Reward author</string>
+    <string name="paypal_ali_desc">Alipay</string>
+    <string name="paypal_wechat_desc">WeChat</string>
+    <string name="save_to_gallery">save to gallery!</string>
+</resources>

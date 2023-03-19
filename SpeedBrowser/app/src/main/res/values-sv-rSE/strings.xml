@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">lätt webbläsare</string>
+    <string name="search">Sök</string>
+    <string name="cancel">Avbryt</string>
+    <string name="favor">favorit</string>
+    <string name="favor_success">favoritframgång</string>
+    <string name="recent_search">Senaste sökningen</string>
+    <string name="baidu">Baidu</string>
+    <string name="sougou">Sogou</string>
+    <string name="google">Google</string>
+    <string name="bing">Bing</string>
+    <string name="enter_internet_url">Ange sökord eller URL</string>
+    <string name="quickVisit">Snabbbesök</string>
+    <string name="recentVisit">Senaste besök</string>
+    <string name="copy_success">Kopiera framgångsrikt</string>
+    <string name="switch_theme">Byt nattläge</string>
+    <string name="about_me">Om mig</string>
+    <string name="about_me_desc">Jag är elev i skolan, jag hoppas att sökningen blir enklare och snabbare, och jag hoppas också att det kan ge dig bekvämlighet. Det är inte lätt att skapa, vänligen stödja</string>
+    <string name="reward_me">Belöningsförfattare</string>
+    <string name="paypal_ali_desc">Alipay</string>
+    <string name="paypal_wechat_desc">WeChat</string>
+    <string name="save_to_gallery">spara i galleriet!</string>
+</resources>

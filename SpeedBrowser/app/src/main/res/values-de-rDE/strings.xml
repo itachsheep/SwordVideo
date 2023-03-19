@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">leichter Browser</string>
+    <string name="search">Suchen</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="favor">Favorit</string>
+    <string name="favor_success">Lieblingserfolg</string>
+    <string name="recent_search">Letzte Suche</string>
+    <string name="baidu">Baidu</string>
+    <string name="sougou">Sogou</string>
+    <string name="google">Google</string>
+    <string name="bing">Bing</string>
+    <string name="enter_internet_url">Keywords oder URL eingeben</string>
+    <string name="quickVisit">Schneller Besuch</string>
+    <string name="recentVisit">Letzter Besuch</string>
+    <string name="copy_success">Kopieren erfolgreich</string>
+    <string name="switch_theme">Nachtmodus wechseln</string>
+    <string name="about_me">Über mich</string>
+    <string name="about_me_desc">Ich bin ein Schüler an der Schule, ich hoffe, dass die Suche einfacher und schneller wird, und ich hoffe auch, dass es Ihnen Komfort bringt. Es ist nicht einfach zu erstellen, bitte unterstützen Sie</string>
+    <string name="reward_me">Autor der Belohnung</string>
+    <string name="paypal_ali_desc">Alipay</string>
+    <string name="paypal_wechat_desc">WeChat</string>
+    <string name="save_to_gallery">in Galerie speichern!</string>
+</resources>

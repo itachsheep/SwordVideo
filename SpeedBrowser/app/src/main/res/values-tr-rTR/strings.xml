@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">hafif tarayıcı</string>
+    <string name="search">Ara</string>
+    <string name="cancel">İptal</string>
+    <string name="favor">favori</string>
+    <string name="favor_success">favori başarı</string>
+    <string name="recent_search">Son arama</string>
+    <string name="baidu">Baidu</string>
+    <string name="sougou">Sogou</string>
+    <string name="google">Google</string>
+    <string name="bing">Bing</string>
+    <string name="enter_internet_url">Anahtar kelimeleri veya URL yi girin</string>
+    <string name="quickVisit">Hızlı Ziyaret</string>
+    <string name="recentVisit">Son Ziyaret</string>
+    <string name="copy_success">Kopyalama başarıyla</string>
+    <string name="switch_theme">Gece modunu değiştir</string>
+    <string name="about_me">Hakkımda</string>
+    <string name="about_me_desc">Okulda bir öğrenciyim, umarım arama daha kolay ve hızlı olur ve ayrıca umarım size kolaylıklar getirir. Oluşturması kolay değil, lütfen destek olun</string>
+    <string name="reward_me">Ödül yazarı</string>
+    <string name="paypal_ali_desc">Alipay</string>
+    <string name="paypal_wechat_desc">WeChat</string>
+    <string name="save_to_gallery">galeriye kaydet!</string>
+</resources>

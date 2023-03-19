@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">trình duyệt nhẹ</string>
+    <string name="search">Tìm kiếm</string>
+    <string name="cancel">Hủy</string>
+    <string name="favor">yêu thích</string>
+    <string name="favor_success">thành công yêu thích</string>
+    <string name="recent_search">Tìm kiếm gần đây</string>
+    <string name="baidu">Baidu</string>
+    <string name="sougou">Sogou</string>
+    <string name="google">Google</string>
+    <string name="bing">Bing</string>
+    <string name="enter_internet_url">Nhập từ khóa hoặc URL</string>
+    <string name="quickVisit">Truy cập nhanh</string>
+    <string name="recentVisit">Lượt truy cập gần đây</string>
+    <string name="copy_success">Sao chép thành công</string>
+    <string name="switch_theme">Chuyển chế độ ban đêm</string>
+    <string name="about_me">Giới thiệu về tôi</string>
+    <string name="about_me_desc">Mình đang là sinh viên đang đi học mong việc tra cứu trở nên dễ dàng và nhanh chóng hơn, đồng thời cũng mong mang lại sự thuận tiện cho các bạn. Tạo ra không dễ, mong các bạn ủng hộ</string>
+    <string name="reward_me">Phần thưởng cho tác giả</string>
+    <string name="paypal_ali_desc">Alipay</string>
+    <string name="paypal_wechat_desc">WeChat</string>
+    <string name="save_to_gallery">lưu vào thư viện!</string>
+</resources>

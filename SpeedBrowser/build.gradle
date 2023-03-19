@@ -1,0 +1,121 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext {
+        // 是否是组件模式
+        isComponent = false
+
+        compile_sdk_version = 31
+        build_tools_version = '30.0.3'
+        min_sdk_version = 23
+        target_sdk_version = 31
+
+        kotlin_version = '1.6.0'
+        kotlin_stdlib = "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+        core_ktx = "androidx.core:core-ktx:$kotlin_version"
+        appcompat = 'androidx.appcompat:appcompat:1.3.1'
+        material = 'com.google.android.material:material:1.4.0'
+        kotlin_reflect = 'org.jetbrains.kotlin:kotlin-reflect:1.6.20'
+        viewbinding = "androidx.databinding:viewbinding:7.3.0"
+
+        apply = { proj ->
+            if (isComponent) {
+                applyApplication(proj)
+            } else {
+                applyLibrary(proj)
+            }
+        }
+
+        applyApplication = { proj ->
+            proj.apply plugin: 'com.android.application'
+            configureKotlin(proj)
+            configureAndroid(proj)
+            configureDependencies(proj)
+            proj.apply plugin: 'kotlin-android-extensions'
+            proj.apply plugin: 'kotlin-kapt'
+        }
+
+
+        applyLibrary = { proj ->
+            proj.apply plugin: 'com.android.library'
+            configureKotlin(proj)
+            configureAndroid(proj)
+            configureDependencies(proj)
+            //manifestRelease(proj.name)
+            proj.apply plugin: 'kotlin-android-extensions'
+            proj.apply plugin: 'kotlin-kapt'
+//            proj.apply plugin: 'kotlin-parcelize'
+        }
+
+        configureKotlin = { proj ->
+            proj.apply plugin: 'kotlin-android'
+        }
+
+        configureAndroid = { proj ->
+            proj.android {
+                compileSdkVersion compile_sdk_version
+                buildToolsVersion build_tools_version
+
+                defaultConfig {
+                    minSdkVersion min_sdk_version
+                    targetSdkVersion target_sdk_version
+
+                    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+                    consumerProguardFiles "proguard-rules.pro"
+                }
+
+                buildTypes {
+                    debug {
+                        minifyEnabled false
+                        proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+                    }
+
+                    release {
+                        minifyEnabled false
+                        proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+                    }
+                }
+
+                compileOptions {
+                    sourceCompatibility JavaVersion.VERSION_1_8
+                    targetCompatibility JavaVersion.VERSION_1_8
+                }
+
+                kotlinOptions {
+                    jvmTarget = '1.8'
+                }
+
+                lintOptions {
+                    abortOnError false
+                }
+            }
+        }
+
+        configureDependencies = { proj ->
+            proj.dependencies {
+                implementation fileTree(dir: 'libs', include: ['*.jar'])
+                implementation core_ktx
+                implementation appcompat
+                implementation material
+            }
+        }
+    }
+
+
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://maven.aliyun.com/repository/gradle-plugin"}
+
+    }
+}
+
+plugins {
+    id 'com.android.application' version '7.3.0' apply false
+    id 'com.android.library' version '7.3.0' apply false
+    id 'org.jetbrains.kotlin.android' version '1.7.10' apply false
+}
+
+
+apply from: 'configs.gradle'
+
+

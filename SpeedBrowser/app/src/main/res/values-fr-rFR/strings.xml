@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">navigateur léger</string>
+    <string name="search">Rechercher</string>
+    <string name="cancel">Annuler</string>
+    <string name="favor">favori</string>
+    <string name="favor_success">succès préféré</string>
+    <string name="recent_search">Recherche récente</string>
+    <string name="baidu">Baidu</string>
+    <string name="sougou">Sogou</string>
+    <string name="google">Google</string>
+    <string name="bing">Bing</string>
+    <string name="enter_internet_url">Entrez des mots clés ou une URL</string>
+    <string name="quickVisit">Visite rapide</string>
+    <string name="recentVisit">Visite récente</string>
+    <string name="copy_success">Copie réussie</string>
+    <string name="switch_theme">Passer en mode nuit</string>
+    <string name="about_me">À propos de moi</string>
+    <string name="about_me_desc">Je suis étudiant à l école,  j espère que la recherche deviendra plus facile et plus rapide, et j espère aussi que cela vous apportera plus de commodité. Ce n est pas facile à créer, veuillez soutenir</string>
+    <string name="reward_me">Auteur de la récompense</string>
+    <string name="paypal_ali_desc">Alipay</string>
+    <string name="paypal_wechat_desc">WeChat</string>
+    <string name="save_to_gallery">enregistrer dans la galerie !</string>
+</resources>

@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">軽いブラウザ</string>
+    <string name="search">検索</string>
+    <string name="cancel">キャンセル</string>
+    <string name="favor">お気に入り</string>
+    <string name="favor_success">お気に入りの成功</string>
+    <string name="recent_search">最近の検索</string>
+    <string name="baidu">バイドゥ</string>
+    <string name="sougou">そごう</string>
+    <string name="google">Google</string>
+    <string name="bing">ビング</string>
+    <string name="enter_internet_url">キーワードまたは URL を入力してください</string>
+    <string name="quickVisit">クイック アクセス</string>
+    <string name="recentVisit">最近の訪問</string>
+    <string name="copy_success">コピー成功</string>
+    <string name="switch_theme">ナイトモードを切り替える</string>
+    <string name="about_me">私について</string>
+    <string name="about_me_desc">私は学校の生徒です。検索がより簡単かつ迅速になることを願っています。また、検索が便利になることを願っています。作成するのは簡単ではありません。サポートしてください</string>
+    <string name="reward_me">著者に報酬を与える</string>
+    <string name="paypal_ali_desc">アリペイ</string>
+    <string name="paypal_wechat_desc">WeChat</string>
+    <string name="save_to_gallery">ギャラリーに保存!</string>
+</resources>

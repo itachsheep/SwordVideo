@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">مرورگر سبک</string>
+    <string name="search">جستجو</string>
+    <string name="cancel">لغو</string>
+    <string name="favor">مورد علاقه</string>
+    <string name="favor_success">موفقیت مورد علاقه</string>
+    <string name="recent_search">جستجوی اخیر</string>
+    <string name="baidu">بایدو</string>
+    <string name="sougou">سوگو</string>
+    <string name="google">Google</string>
+    <string name="bing">بینگ</string>
+    <string name="enter_internet_url">کلمات کلیدی یا URL را وارد کنید</string>
+    <string name="quickVisit">بازدید سریع</string>
+    <string name="recentVisit">بازدید اخیر</string>
+    <string name="copy_success">کپی با موفقیت</string>
+    <string name="switch_theme">حالت شب را تغییر دهید</string>
+    <string name="about_me">درباره من</string>
+    <string name="about_me_desc">من دانش آموز مدرسه هستم، امیدوارم جستجو آسان تر و سریع تر شود، و همچنین امیدوارم که بتواند برای شما راحتی ایجاد کند. ایجاد آن آسان نیست، لطفاً حمایت کنید</string>
+    <string name="reward_me">پاداش نویسنده</string>
+    <string name="paypal_ali_desc">Alipay</string>
+    <string name="paypal_wechat_desc">وی چت</string>
+    <string name="save_to_gallery">ذخیره در گالری!</string>
+</resources>

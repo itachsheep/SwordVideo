@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="@dimen/len_10">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/mIvFooter"
+            android:layout_width="@dimen/len_16"
+            android:layout_height="@dimen/len_16"
+            app:lottie_fileName="loading_refresh.json" />
+
+        <com.tw.speedbrowser.base.widget.SleTextButton
+            android:id="@+id/mTvFooter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/len_8"
+            android:maxLines="1"
+            android:text="@string/srl_footer_pulling"
+            android:textColor="@color/text_1_1A1A1A"
+            android:textSize="@dimen/font_12" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

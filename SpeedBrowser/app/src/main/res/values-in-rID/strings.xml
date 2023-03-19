@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">browser ringan</string>
+    <string name="search">Telusuri</string>
+    <string name="cancel">Batalkan</string>
+    <string name="favor">favorit</string>
+    <string name="favor_success">keberhasilan favorit</string>
+    <string name="recent_search">Pencarian terbaru</string>
+    <string name="baidu">Baidu</string>
+    <string name="sougou">Sogou</string>
+    <string name="google">Google</string>
+    <string name="bing">Bing</string>
+    <string name="enter_internet_url">Masukkan kata kunci atau URL</string>
+    <string name="quickVisit">Kunjungan Cepat</string>
+    <string name="recentVisit">Kunjungan Terakhir</string>
+    <string name="copy_success">Salin berhasil</string>
+    <string name="switch_theme">Ganti mode malam</string>
+    <string name="about_me">Tentang saya</string>
+    <string name="about_me_desc">Saya seorang siswa di sekolah, semoga pencarian menjadi lebih mudah dan cepat, dan saya juga berharap dapat memberikan kemudahan bagi Anda. Tidak mudah untuk membuatnya, mohon dukungannya</string>
+    <string name="reward_me">Hadiah penulis</string>
+    <string name="paypal_ali_desc">Alipay</string>
+    <string name="paypal_wechat_desc">WeChat</string>
+    <string name="save_to_gallery">simpan ke galeri!</string>
+</resources>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.tw.speedbrowser">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name="com.tw.speedbrowser.base.SpeedApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/svg_water_drop"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/svg_water_drop"
+        android:usesCleartextTraffic="true"
+        android:supportsRtl="true"
+
+        android:theme="@style/Theme.SpeedBrowser"
+        tools:targetApi="31">
+        <activity
+            android:name="com.tw.speedbrowser.MainActivity"
+            android:exported="true"
+            android:theme="@style/MySimpleActivity"
+            android:launchMode="singleInstance">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+
+        </activity>
+
+        <activity android:name=".WebActivity"
+            android:launchMode="singleInstance"
+            android:theme="@style/MySimpleActivity"
+            android:exported="false">
+
+        </activity>
+
+    </application>
+
+</manifest>

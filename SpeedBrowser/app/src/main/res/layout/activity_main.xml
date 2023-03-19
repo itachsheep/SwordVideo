@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+
+    <ImageView
+        android:id="@+id/mIvStartLogo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/start_logo"
+        android:layout_width="@dimen/len_200"
+        android:layout_height="@dimen/len_200"/>
+
+    <com.tw.speedbrowser.base.widget.SleConstraintLayout
+        android:id="@+id/mScSearch"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/len_50"
+        android:layout_marginTop="@dimen/len_4"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mIvStartLogo">
+
+        <com.tw.speedbrowser.base.widget.SleConstraintLayout
+            android:id="@+id/sl_et_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/len_15"
+            android:layout_marginEnd="@dimen/len_2"
+            android:layout_weight="1"
+            app:layout_constraintEnd_toStartOf="@+id/tvSearch"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_goneMarginEnd="@dimen/len_15"
+            app:sle_cornersRadius="@dimen/len_6"
+            app:sle_normalStrokeColor="@color/line_2_D9D9D9"
+            app:sle_selectedStrokeColor="@color/text_1_1A1A1A"
+            app:sle_strokeWidth="@dimen/len_1">
+
+            <LinearLayout
+                android:id="@+id/mLLSearchNet"
+                android:paddingVertical="@dimen/len_10"
+                android:paddingStart="@dimen/len_15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/et_search"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/mIvSearchNet"
+                    android:layout_width="@dimen/len_18"
+                    android:layout_height="@dimen/len_18"
+                    android:src="@drawable/baidu_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/mIvSearchNetArrow"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_gravity="bottom"
+                    android:id="@+id/mIvSearchNetArrow"
+                    android:layout_width="@dimen/len_8"
+                    android:layout_height="@dimen/len_8"
+                    android:layout_marginStart="@dimen/len_4"
+                    android:src="@mipmap/ic_selected" />
+            </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/len_10"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/enter_internet_url"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:singleLine="true"
+                android:textAlignment="viewStart"
+                android:textColor="@color/text_1_1A1A1A"
+                android:textColorHint="@color/text_3_999999"
+                android:textCursorDrawable="@drawable/et_cursor_drawable"
+                android:textSize="@dimen/font_15"
+                app:layout_constraintEnd_toStartOf="@+id/iv_clear_key"
+                app:layout_constraintStart_toEndOf="@id/mLLSearchNet"
+                tools:hint="@string/enter_internet_url" />
+
+            <ImageView
+                android:id="@+id/iv_clear_key"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/len_10"
+                android:padding="@dimen/len_5"
+                android:src="@mipmap/ic_search_clear"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+        </com.tw.speedbrowser.base.widget.SleConstraintLayout>
+
+
+        <ImageView
+            android:id="@+id/tvSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/len_10"
+            android:src="@drawable/svg_search"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:sle_cornersRadius="@dimen/len_4"/>
+
+        <!--<com.tw.speedbrowser.base.widget.SleTextButton
+            android:id="@+id/tvSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/len_10"
+            android:text="@string/search"
+            android:textColor="@color/text_1_1A1A1A"
+            android:textSize="@dimen/font_15"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:sle_cornersRadius="@dimen/len_4"
+            app:sle_textStyle="regular" />-->
+
+    </com.tw.speedbrowser.base.widget.SleConstraintLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/mNestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingHorizontal="@dimen/len_16"
+        android:paddingTop="@dimen/len_10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mScSearch"
+        app:layout_constraintVertical_weight="1">
+
+        <com.tw.speedbrowser.base.widget.SleLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <com.tw.speedbrowser.base.widget.SleConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/len_10"
+                app:sle_normalStrokeColor="@color/block_1_F0F3FF"
+                app:sle_strokeWidth="@dimen/len_1"
+                android:paddingBottom="@dimen/len_10"
+                app:sle_cornersRadius="@dimen/len_6">
+
+                <com.tw.speedbrowser.base.widget.SleTextButton
+                    android:id="@+id/quickVisit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/quickVisit"
+                    android:textColor="@color/text_2_555555"
+                    android:textSize="@dimen/font_12"
+                    android:padding="@dimen/len_5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/btFaceBook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/logo_facebook"
+                    android:textColor="@color/text_1_1A1A1A"
+                    android:textSize="@dimen/font_15"
+                    android:layout_marginStart="@dimen/len_20"
+                    android:layout_marginTop="@dimen/len_10"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/quickVisit"
+                    app:sle_cornersRadius="@dimen/len_20"
+                    app:sle_normalBackgroundColor="@color/color_D9D9D9" />
+
+                <com.tw.speedbrowser.base.widget.SleTextButton
+                    android:id="@+id/stbFaceBook"
+                    app:layout_constraintTop_toBottomOf="@id/btFaceBook"
+                    app:layout_constraintStart_toStartOf="@id/btFaceBook"
+                    app:layout_constraintEnd_toEndOf="@id/btFaceBook"
+                    android:textSize="@dimen/font_10"
+                    android:paddingTop="@dimen/len_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Facebook"/>
+
+
+                <ImageView
+                    android:id="@+id/btYouTube"
+                    android:layout_width="@dimen/len_25"
+                    android:layout_height="@dimen/len_25"
+                    android:src="@drawable/logo_youtube"
+                    android:layout_marginStart="@dimen/len_40"
+                    app:layout_constraintStart_toEndOf="@id/btFaceBook"
+                    app:layout_constraintTop_toTopOf="@id/btFaceBook"
+                    app:layout_constraintBottom_toBottomOf="@id/btFaceBook"
+                    app:sle_cornersRadius="@dimen/len_20"
+                    app:sle_normalBackgroundColor="@color/color_D9D9D9" />
+
+                <com.tw.speedbrowser.base.widget.SleTextButton
+                    android:id="@+id/stbYouTube"
+                    app:layout_constraintTop_toBottomOf="@id/btYouTube"
+                    app:layout_constraintStart_toStartOf="@id/btYouTube"
+                    app:layout_constraintEnd_toEndOf="@id/btYouTube"
+                    android:textSize="@dimen/font_10"
+                    android:paddingTop="@dimen/len_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="YouTube"/>
+
+                <ImageView
+                    android:id="@+id/btWikipedia"
+                    android:layout_width="@dimen/len_25"
+                    android:layout_height="@dimen/len_25"
+                    android:src="@drawable/logo_wikipedia"
+                    android:layout_marginStart="@dimen/len_40"
+                    app:layout_constraintStart_toEndOf="@id/btYouTube"
+                    app:layout_constraintTop_toTopOf="@id/btFaceBook"
+                    app:layout_constraintBottom_toBottomOf="@id/btFaceBook"
+                    app:sle_cornersRadius="@dimen/len_20"
+                    app:sle_normalBackgroundColor="@color/color_D9D9D9" />
+
+                <com.tw.speedbrowser.base.widget.SleTextButton
+                    android:id="@+id/stbWikipedia"
+                    app:layout_constraintTop_toBottomOf="@id/btWikipedia"
+                    app:layout_constraintStart_toStartOf="@id/btWikipedia"
+                    app:layout_constraintEnd_toEndOf="@id/btWikipedia"
+                    android:textSize="@dimen/font_10"
+                    android:paddingTop="@dimen/len_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wikipedia"/>
+
+
+            </com.tw.speedbrowser.base.widget.SleConstraintLayout>
+
+
+            <com.tw.speedbrowser.base.widget.SleConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/len_10"
+                app:sle_normalStrokeColor="@color/block_1_F0F3FF"
+                app:sle_strokeWidth="@dimen/len_1"
+                android:paddingBottom="@dimen/len_10"
+                app:sle_cornersRadius="@dimen/len_6">
+
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/mRvTab"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/len_15"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginStart="@dimen/len_5"
+                    android:layout_marginTop="@dimen/len_0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:itemCount="1" />
+
+                <FrameLayout
+                    android:paddingEnd="@dimen/len_25"
+                    android:paddingStart="@dimen/len_10"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/mRvTab"
+                    app:layout_constraintBottom_toBottomOf="@id/mRvTab"
+                    android:id="@+id/mIvDeleteHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:src="@drawable/svg_delete"
+                        android:layout_width="@dimen/len_18"
+                        android:layout_height="@dimen/len_18"/>
+                </FrameLayout>
+
+
+
+                <!--<com.tw.speedbrowser.base.widget.RtlViewPager-->
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/mViewPager"
+                    android:layout_marginHorizontal="@dimen/len_15"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/len_200"
+                    android:layout_marginTop="@dimen/len_10"
+                    app:layout_constraintTop_toBottomOf="@id/mRvTab"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+            </com.tw.speedbrowser.base.widget.SleConstraintLayout>
+
+
+
+            <ImageView
+                android:layout_marginTop="@dimen/len_20"
+                android:id="@+id/mIvNext"
+                android:layout_gravity="end"
+                android:layout_width="@dimen/len_48"
+                android:layout_height="@dimen/len_48"
+                android:src="@drawable/svg_go_next"
+                android:visibility="gone"
+                tools:visibility="visible"/>
+
+        </com.tw.speedbrowser.base.widget.SleLinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+    <com.tw.speedbrowser.base.widget.SleTextButton
+        android:id="@+id/reward"
+        android:paddingVertical="@dimen/len_5"
+        android:paddingHorizontal="@dimen/len_20"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/font_15"
+        android:textColor="@color/light_color_white_FFFFFF"
+        app:sle_textStyle="bold"
+        android:text="@string/reward_me"
+        app:sle_cornersRadius="@dimen/len_20"
+        app:sle_normalBackgroundColor="@color/reward_me"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/len_20"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

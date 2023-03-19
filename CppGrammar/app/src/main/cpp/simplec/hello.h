@@ -6,5 +6,6 @@
 #define CPPGRAMMAR_HELLO_H
 
 extern char* printHello();
+extern void printAddress();
 
 #endif //CPPGRAMMAR_HELLO_H

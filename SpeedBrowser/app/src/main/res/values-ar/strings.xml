@@ -1,0 +1,23 @@
+<resources>
+    <string name = "app_name"> متصفح خفيف </string>
+    <string name = "search"> بحث </string>
+    <string name = "cancel"> إلغاء </string>
+    <string name = "favor"> المفضل </string>
+    <string name = "favor_success"> النجاح المفضل </string>
+    <string name = "recent_search"> البحث الأخير </string>
+    <string name = "baidu"> Baidu </string>
+    <string name = "sougou"> Sogou </string>
+    <string name = "google"> Google </string>
+    <string name = "bing"> Bing </string>
+    <string name = "enter_internet_url"> أدخل الكلمات الرئيسية أو عنوان URL </string>
+    <string name = "quickVisit"> زيارة سريعة </string>
+    <string name = "recentVisit"> آخر زيارة </string>
+    <string name = "copy_success"> النسخ بنجاح </string>
+    <string name = "switch_theme"> تبديل الوضع الليلي </string>
+    <string name = "about_me"> نبذة عني </string>
+    <string name = "about_me_desc"> أنا طالب في المدرسة ، وآمل أن يصبح البحث أسهل وأسرع ، وآمل أيضًا أن يجلب لك الراحة. ليس من السهل الإنشاء ، الرجاء الدعم </string>
+    <string name = "reward_me"> مؤلف المكافأة </string>
+    <string name = "paypal_ali_desc"> Alipay </string>
+    <string name = "paypal_wechat_desc"> WeChat </string>
+    <string name = "save_to_gallery"> حفظ في المعرض! </string>
+</resources>

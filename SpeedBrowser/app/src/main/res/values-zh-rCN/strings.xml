@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">轻浏览器</string>
+    <string name="search">搜索</string>
+    <string name="cancel">取消</string>
+    <string name="favor">收藏</string>
+    <string name="favor_success">收藏成功</string>
+    <string name="recent_search">最近搜索</string>
+    <string name="baidu">百度</string>
+    <string name="sougou">搜狗</string>
+    <string name="google">谷歌</string>
+    <string name="bing">必应</string>
+    <string name="enter_internet_url">输入关键字或者网址</string>
+    <string name="quickVisit">快速访问</string>
+    <string name="recentVisit">最近访问</string>
+    <string name="copy_success">复制成功</string>
+    <string name="switch_theme">切换黑夜模式</string>
+    <string name="about_me">关于我</string>
+    <string name="about_me_desc">我是个在校学生，希望搜索变的更加简单快速，也希望能给你带来便利，创作不易，支持一下</string>
+    <string name="reward_me">打赏作者</string>
+    <string name="paypal_ali_desc">支付宝</string>
+    <string name="paypal_wechat_desc">微信</string>
+
+    <string name="save_to_gallery">保存到图库！</string>
+</resources>

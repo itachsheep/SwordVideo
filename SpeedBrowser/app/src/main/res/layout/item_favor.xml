@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.tw.speedbrowser.base.widget.SleConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mEditCur"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/len_5"
+    android:paddingHorizontal="@dimen/len_5"
+    android:paddingVertical="@dimen/len_10"
+    app:sle_normalBackgroundColor="@color/color_D9D9D9"
+    app:sle_cornersRadius="@dimen/len_6"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+    <!--app:sle_cornersRadius="@dimen/len_6"
+    app:sle_normalBackgroundColor="@color/background_3_E3F1FF" -->
+
+    <ImageView
+        android:paddingVertical="@dimen/len_4"
+        android:paddingHorizontal="@dimen/len_10"
+        android:id="@+id/mIvClear"
+        android:src="@drawable/svg_clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/mNetTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <com.tw.speedbrowser.base.widget.SleTextButton
+        android:id="@+id/mNetTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_1_1A1A1A"
+        app:layout_constraintEnd_toStartOf="@id/mIvClear"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="百度一下，你就知道" />
+
+    <com.tw.speedbrowser.base.widget.SleTextButton
+        android:id="@+id/mNetUrl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="@color/style_blue_2A54FF"
+        app:layout_constraintEnd_toStartOf="@id/mIvClear"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mNetTitle"
+        tools:text="http://www.baidu.com" />
+
+
+</com.tw.speedbrowser.base.widget.SleConstraintLayout>

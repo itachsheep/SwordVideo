@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">ελαφρύ πρόγραμμα περιήγησης</string>
+    <string name="search">Αναζήτηση</string>
+    <string name="cancel">Ακύρωση</string>
+    <string name="favor">αγαπημένο</string>
+    <string name="favor_success">αγαπημένη επιτυχία</string>
+    <string name="recent_search">Πρόσφατη αναζήτηση</string>
+    <string name="baidu">Baidu</string>
+    <string name="sougou">Σόγκου</string>
+    <string name="google">Google</string>
+    <string name="bing">Bing</string>
+    <string name="enter_internet_url">Εισαγάγετε λέξεις-κλειδιά ή διεύθυνση URL</string>
+    <string name="quickVisit">Γρήγορη επίσκεψη</string>
+    <string name="recentVisit">Πρόσφατη επίσκεψη</string>
+    <string name="copy_success">Αντιγραφή με επιτυχία</string>
+    <string name="switch_theme">Αλλαγή της νυχτερινής λειτουργίας</string>
+    <string name="about_me">Σχετικά με εμένα</string>
+    <string name="about_me_desc">Είμαι μαθητής στο σχολείο, ελπίζω η αναζήτηση να γίνει ευκολότερη και πιο γρήγορη και ελπίζω επίσης ότι μπορεί να σας φέρει ευκολία. Δεν είναι εύκολο να το δημιουργήσετε, υποστηρίξτε</string>
+    <string name="reward_me">Βραβείο συγγραφέα</string>
+    <string name="paypal_ali_desc">Alipay</string>
+    <string name="paypal_wechat_desc">WeChat</string>
+    <string name="save_to_gallery">αποθήκευση στη συλλογή!</string>
+</resources>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tw.speedbrowser.base.widget.showdow.ShadowLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/sdl_container"
+    android:orientation="vertical"
+    app:hl_cornerRadius="@dimen/len_12"
+    app:hl_shadowColor="@color/color_1A000000"
+    app:hl_shadowLimit="@dimen/len_10"
+    app:hl_shadowOffsetY="@dimen/len_4">
+
+    <LinearLayout
+        android:paddingHorizontal="@dimen/len_15"
+        android:paddingTop="@dimen/len_10"
+        android:paddingBottom="@dimen/len_10"
+        android:orientation="vertical"
+        android:layout_width="@dimen/len_150"
+        android:layout_height="wrap_content">
+
+        <com.tw.speedbrowser.base.widget.SleTextButton
+
+            android:id="@+id/stb_google"
+            app:sle_type="selector"
+            app:sle_selectedTextColor="@color/style_green2_24C587"
+            app:sle_normalTextColor="@color/text_1_1A1A1A"
+            android:textSize="@dimen/font_18"
+            android:text="@string/google"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/svg_check_circle"/>
+
+        <com.tw.speedbrowser.base.widget.SleTextButton
+            android:layout_marginTop="@dimen/len_10"
+            android:id="@+id/stb_bing"
+            app:sle_type="selector"
+            app:sle_selectedTextColor="@color/style_green2_24C587"
+            app:sle_normalTextColor="@color/text_1_1A1A1A"
+            android:textSize="@dimen/font_18"
+            android:text="@string/bing"
+            android:drawableEnd="@drawable/svg_check_circle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <com.tw.speedbrowser.base.widget.SleTextButton
+            android:id="@+id/stb_baidu"
+            android:layout_marginTop="@dimen/len_10"
+            android:text="@string/baidu"
+            app:sle_type="selector"
+            app:sle_selectedTextColor="@color/style_green2_24C587"
+            app:sle_normalTextColor="@color/text_1_1A1A1A"
+            android:textSize="@dimen/font_18"
+            android:drawableEnd="@drawable/svg_check_circle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <com.tw.speedbrowser.base.widget.SleTextButton
+            android:layout_marginTop="@dimen/len_10"
+            android:id="@+id/stb_sougou"
+            app:sle_type="selector"
+            android:drawableEnd="@drawable/svg_check_circle"
+            app:sle_selectedTextColor="@color/style_green2_24C587"
+            app:sle_normalTextColor="@color/text_1_1A1A1A"
+            android:text="@string/sougou"
+            android:textSize="@dimen/font_18"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+
+    </LinearLayout>
+</com.tw.speedbrowser.base.widget.showdow.ShadowLayout>

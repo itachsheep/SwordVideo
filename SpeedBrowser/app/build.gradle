@@ -1,0 +1,91 @@
+applyApplication(project)
+//plugins {
+//    id 'com.android.application'
+//    id 'org.jetbrains.kotlin.android'
+//    id 'kotlin-android-extensions'
+//    id 'kotlin-kapt'
+//}
+apply plugin: 'kotlin-android'
+
+android {
+    namespace 'com.tw.speedbrowser'
+
+    defaultConfig {
+        applicationId rootProject.ext.applicationId
+        versionCode rootProject.ext.versionCode   //16 对应1.4.0
+        versionName rootProject.ext.versionName
+        flavorDimensions rootProject.ext.versionCodeName
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+//    sourceSets {
+//        //数据库概要、记录存放位置
+//        androidTest.assets.srcDirs += files("$projectDir/schemas".toString())
+//    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+//    externalNativeBuild {
+//        cmake {
+//            path file('src/main/cpp/CMakeLists.txt')
+//            version '3.18.1'
+//        }
+//    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+//    implementation 'androidx.core:core-ktx:1.7.0'
+//    implementation 'androidx.appcompat:appcompat:1.6.0'
+//    implementation 'com.google.android.material:material:1.8.0'
+//    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    api project(':lib_eventcenter')
+
+    api rootProject.ext.dependencies.rx_lifycycle
+    api rootProject.ext.dependencies.rxjava2
+
+    api viewbinding
+    api rootProject.ext.dependencies.lottie
+
+    api rootProject.ext.dependencies.room_runtime
+    api rootProject.ext.dependencies.room_rxjava
+    kapt rootProject.ext.dependencies.room_annotation_processor
+
+    api rootProject.ext.dependencies.rxandroid2
+    api rootProject.ext.dependencies.smart_refresh_layout
+
+    api rootProject.ext.dependencies.rx_permission
+
+    //glide
+    api rootProject.ext.dependencies.glide
+    kapt rootProject.ext.dependencies.glide_compiler
+
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
+}

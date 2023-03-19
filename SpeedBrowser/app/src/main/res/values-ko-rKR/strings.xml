@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">라이트 브라우저</string>
+    <string name="search">검색</string>
+    <string name="cancel">취소</string>
+    <string name="favor">즐겨찾기</string>
+    <string name="favor_success">가장 좋아하는 성공</string>
+    <string name="recent_search">최근 검색</string>
+    <string name="baidu">바이두</string>
+    <string name="sougou">소고우</string>
+    <string name="google">구글</string>
+    <string name="bing">빙</string>
+    <string name="enter_internet_url">키워드 또는 URL 입력</string>
+    <string name="quickVisit">빠른 방문</string>
+    <string name="recentVisit">최근 방문</string>
+    <string name="copy_success">복사 성공</string>
+    <string name="switch_theme">야간 모드 전환</string>
+    <string name="about_me">나에 대해</string>
+    <string name="about_me_desc">저는 학교에 다니고 있는 학생입니다. 검색이 더 쉽고 빨라지기를 바라며, 여러분에게도 편리함을 가져다 줄 수 있기를 바랍니다. 만들기가 쉽지 않습니다. 많은 지원 부탁드립니다.</string>
+    <string name="reward_me">저자 보상</string>
+    <string name="paypal_ali_desc">알리페이</string>
+    <string name="paypal_wechat_desc">위챗</string>
+    <string name="save_to_gallery">갤러리에 저장!</string>
+</resources>

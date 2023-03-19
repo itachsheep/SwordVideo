@@ -15,3 +15,9 @@ char* printHello() {
     printHello_cpp();
     return s;
 }
+
+void printAddress() {
+    int a = 100;
+    int *p = &a;
+    LOGD("printAddress &a = %#x, p = %x ",&a, p);
+}

@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">lichte browser</string>
+    <string name="search">Zoeken</string>
+    <string name="cancel">Annuleren</string>
+    <string name="favor">favoriet</string>
+    <string name="favor_success">favoriet succes</string>
+    <string name="recent_search">Recent zoeken</string>
+    <string name="baidu">Baidu</string>
+    <string name="sougou">Sogou</string>
+    <string name="google">Google</string>
+    <string name="bing">Bing</string>
+    <string name="enter_internet_url">Voer trefwoorden of URL in</string>
+    <string name="quickVisit">Snel bezoek</string>
+    <string name="recentVisit">Recent bezoek</string>
+    <string name="copy_success">Kopiëren gelukt</string>
+    <string name="switch_theme">Schakel de nachtmodus</string>
+    <string name="about_me">Over mij</string>
+    <string name="about_me_desc">Ik ben een student op school, ik hoop dat het zoeken gemakkelijker en sneller wordt, en ik hoop ook dat het je gemak kan brengen. Het is niet gemakkelijk om te maken, steun alsjeblieft</string>
+    <string name="reward_me">Beloon auteur</string>
+    <string name="paypal_ali_desc">Alipay</string>
+    <string name="paypal_wechat_desc">WeChat</string>
+    <string name="save_to_gallery">opslaan in galerij!</string>
+</resources>

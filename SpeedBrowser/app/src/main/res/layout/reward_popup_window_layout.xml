@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tw.speedbrowser.base.widget.SleConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/sdl_container"
+    app:sle_cornersRadius="@dimen/len_10"
+    android:paddingHorizontal="@dimen/len_15"
+    android:paddingVertical="@dimen/len_15"
+    app:sle_normalBackgroundColor="@color/color_D9D9D9">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+
+        <com.tw.speedbrowser.base.widget.SleTextButton
+            android:id="@+id/paypal_me"
+            android:paddingHorizontal="@dimen/len_10"
+            android:layout_marginTop="@dimen/len_6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/font_15"
+            android:textColor="@color/text_1_1A1A1A"
+            android:text="@string/paypal_link_desc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <com.tw.speedbrowser.base.widget.SleTextButton
+            android:id="@+id/paypal_me_link"
+            android:paddingHorizontal="@dimen/len_10"
+            android:layout_marginTop="@dimen/len_6"
+            android:layout_width="0dp"
+            app:layout_constraintHorizontal_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/font_15"
+            android:textColor="@color/style_blue_2A54FF"
+            android:text="@string/paypal_link"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/mIvCopy_paypal_me_link"
+            app:layout_constraintTop_toBottomOf="@id/paypal_me"/>
+
+        <ImageView
+            android:paddingHorizontal="@dimen/len_10"
+            android:id="@+id/mIvCopy_paypal_me_link"
+            android:src="@mipmap/ic_new_copy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/paypal_me_link"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/paypal_me_link"
+            app:layout_constraintBottom_toBottomOf="@id/paypal_me_link"/>
+
+        <com.tw.speedbrowser.base.widget.SleTextButton
+            android:id="@+id/paypal_me_email"
+            android:paddingHorizontal="@dimen/len_10"
+            android:layout_marginTop="@dimen/len_6"
+            android:layout_width="0dp"
+            app:layout_constraintHorizontal_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/font_15"
+            android:textColor="@color/style_blue_2A54FF"
+            android:text="@string/contact_me_email"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/mIvCopy_paypal_me_email"
+            app:layout_constraintTop_toBottomOf="@id/paypal_me_link"/>
+
+        <ImageView
+            android:paddingHorizontal="@dimen/len_10"
+            android:id="@+id/mIvCopy_paypal_me_email"
+            android:src="@mipmap/ic_new_copy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/paypal_me_email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/paypal_me_email"
+            app:layout_constraintBottom_toBottomOf="@id/paypal_me_email"/>
+
+        <com.tw.speedbrowser.base.widget.SleTextButton
+            android:id="@+id/stb_ali_pay"
+            android:paddingHorizontal="@dimen/len_10"
+            android:layout_marginTop="@dimen/len_6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/font_15"
+            android:textColor="@color/text_1_1A1A1A"
+            android:text="@string/paypal_ali_desc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/paypal_me_email"/>
+
+        <ImageView
+            android:paddingVertical="@dimen/len_15"
+            android:paddingHorizontal="@dimen/len_10"
+            android:src="@drawable/svg_download"
+            android:id="@+id/iv_ali_download"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/stb_ali_pay"/>
+
+        <ImageView
+            android:id="@+id/pay_ali"
+            android:layout_marginTop="@dimen/len_10"
+            android:layout_width="@dimen/len_150"
+            android:layout_height="@dimen/len_150"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/stb_ali_pay"
+            android:src="@mipmap/ali_pay"/>
+
+
+
+        <com.tw.speedbrowser.base.widget.SleTextButton
+            android:id="@+id/stb_wechat_pay"
+            android:paddingHorizontal="@dimen/len_10"
+            android:layout_marginTop="@dimen/len_6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/font_15"
+            android:textColor="@color/text_1_1A1A1A"
+            android:text="@string/paypal_wechat_desc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pay_ali"/>
+
+
+        <ImageView
+            android:paddingVertical="@dimen/len_15"
+            android:paddingHorizontal="@dimen/len_10"
+            android:src="@drawable/svg_download"
+            android:id="@+id/iv_wechat_download"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/stb_wechat_pay"/>
+
+        <ImageView
+            android:layout_marginTop="@dimen/len_10"
+            android:layout_marginStart="@dimen/len_10"
+            android:id="@+id/pay_wechat"
+            android:layout_width="@dimen/len_150"
+            android:layout_height="@dimen/len_150"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/stb_wechat_pay"
+            android:src="@mipmap/wechat_pay"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.tw.speedbrowser.base.widget.SleConstraintLayout>

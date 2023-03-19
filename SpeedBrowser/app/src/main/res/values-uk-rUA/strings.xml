@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">легкий браузер</string>
+    <string name="search">Пошук</string>
+    <string name="cancel">Скасувати</string>
+    <string name="favor">улюблене</string>
+    <string name="favor_success">улюблений успіх</string>
+    <string name="recent_search">Останній пошук</string>
+    <string name="baidu">Baidu</string>
+    <string name="sougou">Sogou</string>
+    <string name="google">Google</string>
+    <string name="bing">Bing</string>
+    <string name="enter_internet_url">Введіть ключові слова або URL</string>
+    <string name="quickVisit">Швидкий візит</string>
+    <string name="recentVisit">Останнє відвідування</string>
+    <string name="copy_success">Копійовано успішно</string>
+    <string name="switch_theme">Перемкнути нічний режим</string>
+    <string name="about_me">Про мене</string>
+    <string name="about_me_desc">Я навчаюся в школі, я сподіваюся, що пошук стане легшим і швидшим, а також я сподіваюся, що він може принести вам зручність. Це непросто створити, будь ласка, підтримайте</string>
+    <string name="reward_me">Нагорода автора</string>
+    <string name="paypal_ali_desc">Alipay</string>
+    <string name="paypal_wechat_desc">WeChat</string>
+    <string name="save_to_gallery">зберегти в галерею!</string>
+</resources>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/len_250"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--<com.tw.speedbrowser.base.widget.SleTextButton
+        android:id="@+id/btClearHistory"
+        android:paddingVertical="@dimen/len_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/len_15"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="清除历史记录"/>-->
+
+    <com.tw.speedbrowser.base.widget.SleConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/text_3_999999"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/mRecyclerView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/len_250"
+            tools:listitem="@layout/item_recent_search"/>
+
+        <ImageView
+            android:id="@+id/mIvEmpty"
+            android:layout_width="@dimen/len_150"
+            android:layout_height="@dimen/len_150"
+            android:src="@drawable/empty"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+
+
+    </com.tw.speedbrowser.base.widget.SleConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
